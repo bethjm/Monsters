@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 ///////
 
+const Seed = require('./models/seed.js')
 const MonsterCustom = require('./models/custommonsters.js')
 
 ///////
@@ -13,6 +14,16 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
 ///////
+
+app.get('/seed', (req, res) =>{
+  MonsterCustom.create(Seed).then((seed)=>{
+    res.send(seed)
+  })
+})
+//comment this out after I load it once
+//drop collection as off switch ()
+
+//////
 
 app.get('/custommonster', (req, res) => {
     MonsterCustom.find({}).then((allMonsters) => {
@@ -35,6 +46,8 @@ app.get('/custommonster/:id', (req, res) => {
       })
     })
 
+
+
 app.get('/custommonster/:id/edit', (req, res) => {
     MonsterCustom.findById(req.params.id).then((foundMonster) => {
         res.render('edit.ejs', {
@@ -47,12 +60,15 @@ app.get('/custommonster/:id/edit', (req, res) => {
 ////////
 
 
-app.post('/custommonster', (req, res) => {
-    MonsterCustom.create(req.body).then((createdMonster) => {
-        res.redirect('/custommonster')
+app.post("/custommonster", (req, res) => {
+  MonsterCustom.create(req.body)
+    .then((createdMonster) => {
+      res.redirect('/custommonster');
     })
-    
-    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 
 app.delete('/custommonster/:id', (req, res) => {
     MonsterCustom.findByIdAndRemove(req.params.id).then(() => {

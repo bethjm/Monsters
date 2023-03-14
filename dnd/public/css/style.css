@@ -1,0 +1,8 @@
+.seeYourMonsters {
+    display: flex;
+    flex-direction: column;
+}
+
+.customNameAndPhoto {
+    flex-direction: row;
+}
