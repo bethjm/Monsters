@@ -2,7 +2,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 ///////
-
 const Seed = require('./models/seed.js')
 const MonsterCustom = require('./models/custommonsters.js')
 
@@ -12,6 +11,7 @@ const app = express()
 ///////
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
+app.use(express.static('public'));
 
 ///////
 
