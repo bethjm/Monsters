@@ -15,19 +15,19 @@ app.use(methodOverride('_method'))
 
 app.get('/custommonster', (req, res) => {
     MonsterCustom.find({}).then((allMonsters) => {
-     res.render('./custommonsters/index.ejs', {
+     res.render('/index.ejs', {
         customMonsters:allMonsters
       })
     })
  })
 
 app.get('/custommonster/new', (req, res) => {
-	res.render('./custommonsters/new.ejs')
+	res.render('/new.ejs')
 })
 
 app.get('/custommonster/:id', (req, res) => {
     MonsterCustom .findById(req.params.id).then((foundMonster) => {
-        res.render('./custommonsters/show.ejs', {
+        res.render('/show.ejs', {
           customizedMonster:foundMonster
         })
       })
@@ -35,7 +35,7 @@ app.get('/custommonster/:id', (req, res) => {
 
 app.get('/custommonster/:id/edit', (req, res) => {
     MonsterCustom.findById(req.params.id).then((foundMonster) => {
-        res.render('./custommonsters/edit.ejs', {
+        res.render('/edit.ejs', {
         customizedMonster:foundMonster
         })
     })
