@@ -13,13 +13,14 @@
     <h1>Customize your monster</h1>
 
    <form action="/custommonster/<%=customizedMonster.id%>?_method=PUT" method="POST">
+  
         Name: <input type="text" name="name" placeholder="REQUIRED" value="<%=customizedMonster.name%>"/>
         Image: <input type="url" placeholder="Image Link" name="img" value="<%=customizedMonster.img%>"/>
         Version: <input type="text" name="version" placeholder="REQUIRED" value="<%=customizedMonster.version%>"/>
         Type: <input type="text" name="type" placeholder="REQUIRED" value="<%=customizedMonster.type%>"/>
         Has been used: <input type="checkbox" name="used" value="<%=customizedMonster.used%>"/>
         Location: <input type="text" name="location" value="<%=customizedMonster.location%>"/>
-        Situation: <textarea type="text" name="situation" placeholder="When would you use this monster?" rows="4" cols="50" value="<%=customizedMonster.situation%>"></textarea>
+        Situation: <input type="text" name="situation" value="<%=customizedMonster.situation%>">
         Occupation: <input type="text" name="occupation" value="<%=customizedMonster.occupation%>"/>
         Encounter Type: <input type="text" name="encounterType" value="<%=customizedMonster.encounterType%>"/>
         Interaction Type: <input type="text" name="interactType" placeholder="Is it martial or social?" value="<%=customizedMonster.interactType%>"/>

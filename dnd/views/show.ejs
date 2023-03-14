@@ -9,9 +9,71 @@
   <title>Your Monster</title>
 </head>
 <body>
-    <h1>See Your Custom Monsters</h1>
-    The <%=customizedMonster.name%> is <%=customizedMonster.type%>.
-      <nav>
+    <h1>See Your Custom Monster</h1>
+    <div>
+    <img src="<%=customizedMonster.img%>"></img> 
+  Name: <%=customizedMonster.name%>
+    </div>
+    <div>
+    Type: <%=customizedMonster.type%><br>
+    Used? <%=customizedMonster.used%><br>
+    Location: <%=customizedMonster.location%><br>
+    <button>Click to view your world map</button><br>
+    Situation: <%=customizedMonster.situation%><br>
+    Occupation: <%=customizedMonster.occupation%><br>
+    Encounter Type:<%=customizedMonster.encounterType%><br>
+    Interaction Type:<%=customizedMonster.interactType%><br>
+    Combat Type: <%=customizedMonster.combatType%><br>
+
+    <table style="width:100%">
+      <tr>
+        <th>Stats</th>
+        <th>Number</th>
+      </tr>
+      <tr>
+        <td>CR</td>
+        <td><%=customizedMonster.CR%></td>
+      </tr>
+      <tr>
+        <td>AC</td>
+        <td><%=customizedMonster.AC%></td>
+      </tr>
+      <tr>
+        <td>HP</td>
+        <td><%=customizedMonster.HP%></td>
+      </tr>
+    </table><br>
+
+      <table style="width:100%">
+      <tr>
+        <th>Stats</th>
+        <th>Number</th>
+      </tr>
+      <tr>
+        <td>STR</td>
+        <td><%=customizedMonster.STR%></td>
+      </tr>
+      <tr>
+        <td>DEX</td>
+        <td><%=customizedMonster.DEX%></td>
+      </tr>
+      <tr>
+        <td>INT</td>
+        <td><%=customizedMonster.INT%></td>
+      </tr>
+      <tr>
+        <td>WIS</td>
+        <td><%=customizedMonster.WIS%></td>
+      </tr>
+      <tr>
+        <td>CHA</td>
+        <td><%=customizedMonster.CHA%></td>
+      </tr>
+    </table>
+      
+    
+    
+    <nav>
         <a href="/custommonster">Home</a>
       </nav>
     

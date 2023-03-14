@@ -34,3 +34,6 @@ const customMonsterSchema = new mongoose.Schema ({
 
 const customMonsterCollection = mongoose.model('MonsterCustom', customMonsterSchema)
 module.exports = customMonsterCollection
+
+
+
