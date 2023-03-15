@@ -1,35 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
 
-  <title>Your Custom Monsters</title>
-</head>
 
   <%- include ('./partials/header.ejs') %>
-    <nav>
-        <a href='/custommonster/new'>Add new Monster</a>
-    </nav>
+<div class="basically-body">
+  <div class="navbar">
+    <a href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+    <a href='/custommonster/new'><i class="fa fa-plus"></i>  Add</a> 
+    <a href="#"><i class="fa fa-fw fa-search"></i></a> 
+    <form>
+    <input type="text" name="search" placeholder="Find a monster (if you dare)">
+  </form>
+  </div>
     
     <h1>Your Custom Monsters</h1>
 
-    <ul>
+    <ul class ="characterprofile">
         <% for(let i = 0; i < customMonsters.length; i++){%>
+          <div class="profile">
           <li>
-          <a href="/custommonster/<%=customMonsters[i].id%>"><%=customMonsters[i].name%></a>
-
-          <form action="/custommonster/<%=customMonsters[i].id%>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE">
-            <a href="/custommonster/<%=customMonsters[i].id%>/edit">Edit</a>
-          </form>
-  
+            <img id="homepageimage" src="<%=customMonsters[i].img%>"><br>
+          <a id="charactername" href="/custommonster/<%=customMonsters[i].id%>"><%=customMonsters[i].name%></a>
+          <a id="characterused" href="/custommonster/<%=customMonsters[i].used%>"><%=customMonsters[i].used%></a>
+          <a id="charactertype" href="/custommonster/<%=customMonsters[i].type%>"><%=customMonsters[i].type%></a>
         </li>
+          <div class = "buttons">
+          <form action="/custommonster/<%=customMonsters[i].id%>?_method=DELETE" method="POST">
+            <input id="deletebutton" type="submit" value="DELETE">
+            <button><a id="editbutton" href="/custommonster/<%=customMonsters[i].id%>/edit">Edit</a></button>
+          </form>
+      </div>
+      </div>
         <%}%>
       </ul>
     
 
 </body>
 </html>
+</div>

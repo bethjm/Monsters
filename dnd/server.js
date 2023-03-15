@@ -15,11 +15,11 @@ app.use(express.static('public'));
 
 ///////
 
-app.get('/seed', (req, res) =>{
-  MonsterCustom.create(Seed).then((seed)=>{
-    res.send(seed)
-  })
-})
+// app.get('/seed', (req, res) =>{
+//   MonsterCustom.create(Seed).then((seed)=>{
+//     res.send(seed)
+//   })
+// })
 //comment this out after I load it once
 //drop collection as off switch ()
 
@@ -43,6 +43,7 @@ app.get('/custommonster/:id', (req, res) => {
         res.render('show.ejs', {
           customizedMonster:foundMonster
         })
+        console.log(foundMonster)
       })
     })
 
@@ -60,14 +61,11 @@ app.get('/custommonster/:id/edit', (req, res) => {
 ////////
 
 
-app.post("/custommonster", (req, res) => {
+app.post('/custommonster', (req, res) => {
   MonsterCustom.create(req.body)
     .then((createdMonster) => {
       res.redirect('/custommonster');
     })
-    .catch((error) => {
-      console.log(error);
-    });
 });
 
 app.delete('/custommonster/:id', (req, res) => {

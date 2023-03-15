@@ -2,31 +2,26 @@ const mongoose = require('mongoose')
 
 const customMonsterSchema = new mongoose.Schema ({
 	img: String,
-    version: { type: String, required: true},
     name: { type: String, required: true},
   	type: { type: String, required: true},
-    used: Boolean,
-    location: [String],
-    situation: [String],
-    occupation: String,
-    encounterType: String,
-    interactType: String,
-    combatType: String,
+    used: String,
+    location: String,
     stats: {
-        CR: Number,
-        AC: Number,
-        HP: Number,
-        STR: Number,
-        DEX: Number,
-        INT: Number,
-        WIS: Number,
-        CHA: Number
+        CR: String,
+        AC: String,
+        HP: String,
+        STR: String,
+        DEX: String,
+        INT: String,
+        WIS: String,
+        CHA: String
     },
-    strengths: [String],
+    encounterType: String,
+    combatType: String,
+    strengths: String,
     strengthNotes: String,
-    weaknesses: [String],
+    weaknesses: String,
     weaknessNotes: String,
-    importantLinks: [String],
     notes: String
 
 })

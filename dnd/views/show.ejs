@@ -14,62 +14,73 @@
     <img src="<%=customizedMonster.img%>">Image</img> 
     <%=customizedMonster.name%>
     </div>
-    <div>
     Type: <%=customizedMonster.type%><br>
-    Used? <%=customizedMonster.used%><br>
     Location: <%=customizedMonster.location%><br>
-    <button>Click to view your world map</button><br>
-    Situation: <%=customizedMonster.situation%><br>
-    Occupation: <%=customizedMonster.occupation%><br>
     Encounter Type:<%=customizedMonster.encounterType%><br>
-    Interaction Type:<%=customizedMonster.interactType%><br>
     Combat Type: <%=customizedMonster.combatType%><br>
+Strengths: <%=customizedMonster.strengths%><br> 
+Strength Notes:<br>
+<%=customizedMonster.strengthNotes%>
+Weaknesses: <%=customizedMonster.weaknesses%><br> 
+Weakness Notes: <br>
+<%=customizedMonster.weaknessNotes%><br> 
 
-    <table style="width:100%">
-      <tr>
-        <th>Stats</th>
-        <th>Number</th>
-      </tr>
-      <tr>
-        <td>CR</td>
-        <td><%=customizedMonster.CR%></td>
-      </tr>
-      <tr>
-        <td>AC</td>
-        <td><%=customizedMonster.AC%></td>
-      </tr>
-      <tr>
-        <td>HP</td>
-        <td><%=customizedMonster.HP%></td>
-      </tr>
-    </table><br>
+<table style="width:100%">
+<tr>
+<td>
+CR 
+</td>
+<td>
+<%=customizedMonster.stats.CR%>
+</td>
+</tr>
 
-      <table style="width:100%">
-      <tr>
-        <th>Stats</th>
-        <th>Number</th>
-      </tr>
-      <tr>
-        <td>STR</td>
-        <td><%=customizedMonster.STR%></td>
-      </tr>
-      <tr>
-        <td>DEX</td>
-        <td><%=customizedMonster.DEX%></td>
-      </tr>
-      <tr>
-        <td>INT</td>
-        <td><%=customizedMonster.INT%></td>
-      </tr>
-      <tr>
-        <td>WIS</td>
-        <td><%=customizedMonster.WIS%></td>
-      </tr>
-      <tr>
-        <td>CHA</td>
-        <td><%=customizedMonster.CHA%></td>
-      </tr>
-    </table>
+<tr>
+<td>
+  AC
+</td>
+<td>
+  <%=customizedMonster.stats.AC%>
+</td>
+</tr>
+
+<tr>
+<td>
+  HP
+</td>
+<td>
+  <%=customizedMonster.stats.HP%>
+</td>
+</tr>
+</table>
+
+  <table style="width:100%">
+  <tr>
+    <td>
+      STR
+    </td>
+    <td>
+      <%=customizedMonster.stats.STR%>
+    </td>
+  </tr>
+  <tr>
+    <td>DEX</td>
+    <td><%=customizedMonster.stats.DEX%></td>
+  </tr>
+  <tr>
+    <td>INT</td>
+    <td><%=customizedMonster.stats.INT%></td>
+  </tr>
+  <tr>
+    <td>WIS</td>
+    <td><%=customizedMonster.stats.WIS%></td>
+  </tr>
+  <tr>
+    <td>CHA</td>
+    <td><%=customizedMonster.CHA%></td>
+  </tr>
+</table>
+
       
     
     

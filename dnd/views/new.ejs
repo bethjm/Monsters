@@ -11,33 +11,82 @@
 <body>
     <h1>Add your monster</h1>
 
+
     <form action="/custommonster" method="POST">
-        Name: <input type="text" name="name" placeholder="REQUIRED">
-        Image: <input type="url" placeholder="Image Link" name="img">
-        Version: <input type="text" name="version" placeholder="REQUIRED">
-        Type: <input type="text" name="type" placeholder="REQUIRED">
-        Has been used: <input type="checkbox" name="used">
-        Location: <input type="text" name="location">
-        Situation: <input type="text" name="situation">
-        Occupation: <input type="text" name="occupation">
-        Encounter Type: <input type="text" name="encounterType">
-        Interaction type: <input type="text" name="interactType" placeholder="Is it martial or social?">
-        Combat Type: <input type="text" name="combatType" placeholder="Is this a boss? a random encounter?">
-            CR:<input type="text" name="CR">
-            AC:<input type="text" name="AC">
-        HP:<input type="text" name="HP">
-        STR: <input type="text" name="STR">
-        DEX: <input type="text" name="DEX">
-        INT: <input type="text" name="INT">
-        WIS: <input type="text" name="WIS">
-        CHA: <input type="text" name="CHA">
+        <input type="submit" value="Submit Custom Monster"><br>
+
+        Name: <input type="text" name="name" placeholder="REQUIRED"><br>
+        Image: <input type="url" placeholder="Image Link" name="img"><br>
+        Type: <input type="text" name="type" placeholder="REQUIRED"><br>
+        In World Location: <input type="text" name="location"><br>
+        
+        <label for="used">Have you used this monster?</label>
+        <select name="used">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="combatType">Combat Type</label>
+        <select name="combatType">
+          <option value="brawl">Brawl</option>
+          <option value="skirmish">Skirmish</option>
+          <option value="magic">Magic</option>
+          <option value="all">All</option>
+          <option value="none">None</option>
+        </select>
+
+        <label for="encounterType">Encounter Type</label>
+            <select name="encounterType">
+              <option value="fight">Fight</option>
+              <option value="social">Socialize</option>
+              <option value="boss">Big Boss</option>
+              <option value="help">Help the party</option>
+              <option value="random">Random encounter</option>
+            </select>   
+          <br> 
+          <table> 
+        <tr>        
+            <td>CR</td>
+            <td><input type="text" name="stats.CR"></td>
+        </tr>
+        <tr>
+            <td>AC</td>
+            <td><input type="text" name="stats.AC"></td>
+        </tr>
+        <tr>
+            <td>HP</td>
+            <td><input type="text" name="stats.HP"></td>
+        </tr>
+        </table> 
+        <table> 
+        <tr>  
+            <td>STR</td>
+                <td><input type="text" name="stats.STR"></td>
+    </tr>
+        <tr>  
+            <td>DEX</td>
+                <td><input type="text" name="stats.DEX"></td>
+    </tr>
+        <tr>  
+            <td>INT</td>
+                <td><input type="text" name="stats.INT"></td>
+    </tr>
+        <tr>  
+            <td>WIS</td>
+                <td><input type="text" name="stats.WIS"></td>
+    </tr>
+        <tr>  
+            <td>CHA</td>
+                <td><input type="text" name="stats.CHA"></td>
+    </tr>
+        </table> 
         Strengths: <input type="text" name="strengths" placeholder="List out general strengths">
-        Strength Details:<textarea type="text" name="strengthNotes" rows="4" cols="50"></textarea>
-        Weaknesses: <input type="text" name="weaknesses" placeholder="List out general weaknesses">
-        Weakness Details: <textarea type="text" name="weaknessNotes" rows="4" cols="50"></textarea>
-        Important Links: <input type="url" name="importantLinks">
-        Notes: <textarea type="text" name="notes" rows="4" cols="50"></textarea>
-        <input type="submit" value="Customize Monster">
+        <br> 
+        Strength Notes:<br> <textarea type="text" name="strengthNotes" rows="4" cols="50"></textarea><br> 
+        Weaknesses: <input type="text" name="weaknesses" placeholder="List out general weaknesses"><br> 
+        Weakness Notes:<br>  <textarea type="text" name="weaknessNotes" rows="4" cols="50"></textarea><br> 
+        Other:<br>  <textarea type="text" name="notes" rows="4" cols="50"></textarea><br> 
+        
     </form>
 </body>
 </html>

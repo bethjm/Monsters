@@ -1,0 +1,162 @@
+.header {
+    background-color: rgb(206 34 17);
+    height: 20vh;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+#headertitle {
+    color: white;
+    padding-left: 5%;
+    padding-top: 4vh;
+    font-family: 'Pokemon Solid', sans-serif;
+    font-size: 3.5em;
+    text-shadow: -2px 2px 0 #000,
+    2px 2px 0 #000,
+   2px -2px 0 #000,
+  -2px -2px 0 #000;
+
+}
+
+.createnewlink {
+    text-decoration:none;
+    background-color: rgb(0 0 0);
+    color: white;
+    padding-top: 2vh;
+    padding-left: 5%;
+    height: 5vh;
+    font-family: 'Pokemon Solid', sans-serif;
+    font-size: 1em;
+    margin-top:0;
+}
+
+.pokeprofile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgb(94 189 252);
+    margin-top: 0;
+}
+
+.profile {
+    margin-left: 3%;
+    margin-top: 3%;
+    padding-top: 3%;
+    margin-bottom: 3%;
+    flex-direction: row;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    border-radius: 25px;
+
+
+}
+
+.pokeprofile li {
+    list-style-type: none;
+    flex-direction: column;
+    font-family: 'Pokemon Solid', sans-serif;
+}
+
+#homepageimage {
+    width: 100px;
+    height: 100px;
+}
+
+#editbutton {
+    text-decoration:none;
+    color: black;
+}
+
+#pokename {
+    text-decoration:none;
+    color: black;
+}
+
+.butons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.addpage {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 20%;
+    margin-right: 40%;
+    margin-top: 5%;
+    font-family: sans-serif;
+    font-size: 4vh;
+
+}
+
+.inputfield {
+    margin-top: 1%;
+    width: 50vw;
+    height: 5vh;
+    font-size: 20px;
+}
+
+
+#addpokebutton {
+    margin-top: 5%;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: RGB(28 76 189);
+    margin-bottom: 20vh;
+}
+
+#showpagephoto {
+    width: 20vw;
+    height: 25vh;
+}
+
+.pokestats {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-top:10%;
+    margin-bottom: 30vh;
+}
+
+#name {
+    font-size: 5vh;
+    
+}
+
+.bar {
+    margin-right: 30%;
+}
+
+#barOne{
+background-color: RGB(229 66 34);
+line-height: 30px;
+
+}
+
+#barTwo{
+    background-color:RGB(55 121 108);
+    line-height: 30px;
+}
+
+#barThree{
+    background-color:RGB(12 51 72);
+    line-height: 30px;
+}
+
+#barFour{
+    background-color:RGB(22 214 251);
+    line-height: 30px;
+    width: 100
+}

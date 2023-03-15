@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.cdnfonts.com/css/pokemon-solid-2" rel="stylesheet">
+  <title>Pokedex</title>
+</head>
+<%- include ('./partials/header.ejs') %>
+<a class="createnewlink" href="/pokemon/new">Create a new Pokemon</a>
+    <ul class ="pokeprofile">
+        <% for(let i = 0; i < showPokemon.length; i ++){%>
+            <div class="profile">
+            <img id="homepageimage" src="<%=showPokemon[i].img%>"><br>
+            <li><a id="pokename" href="/pokemon/<%=showPokemon[i]._id%>"><%=showPokemon[i].name%></a></li>
+            <div class = "buttons" >
+            <form action="/pokemon/<%=showPokemon[i]._id%>?_method=DELETE" method="POST"><br>
+                <input id="deletebutton" type="submit" value="DELETE">
+                <button><a id="editbutton" href="/pokemon/<%=showPokemon[i].id%>/edit">EDIT</a></button>
+            </form>
+        </div>
+        </div>
+        <%}%>
+    </ul>
+</body>
+</html>
