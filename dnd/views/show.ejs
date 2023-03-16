@@ -8,6 +8,14 @@
 
   <title>Your Monster</title>
 </head>
+<nav>
+  <div class = "buttons">
+    <form action="/custommonster/<%=customizedMonster.id%>?_method=DELETE" method="POST">
+      <input id="deletebutton" type="submit" value="DELETE">
+      <button><a id="editbutton" href="/custommonster/<%=customizedMonster.id%>/edit">Edit</a></button>
+    </form>
+</div>
+</nav>
 <body class="seeYourMonsters">
     <h1>See Your Custom Monster</h1>
     <div class="customNameAndPhoto">
