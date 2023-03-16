@@ -1,3 +1,8 @@
+body {
+    margin:0;
+    display: flex;
+    flex-direction: column;
+}
 .header {
     font-family: Arial, Helvetica, sans-serif;
     transition: background-color .5s;
@@ -80,9 +85,9 @@
     width: 100%;
     background-color: #5E53A8;
     overflow: auto;
-        /* padding-left: 20px; */
-        line-height: 3vh;
-        display: flex;
+    line-height: 3vh;
+    display: flex;
+    flex-wrap: wrap;
   }
   
   .navbar a {
@@ -109,14 +114,14 @@
     z-index: 0;
     box-shadow: 0 0 60px #dab171 inset;
     background: rgba(252, 245, 229);
-    height: 100vh;
+    height: 100%;
   }
 
   .characterprofile {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     margin-top: 0;
+    flex-wrap: wrap;
 }
 
 .profile {
@@ -124,12 +129,17 @@
     margin-top: 3%;
     padding-top: 3%;
     margin-bottom: 3%;
-    flex-direction: row;
+    flex-direction: column;
     background-color: #FEFEFE ;
     width: 200px;
     height: 200px;
     text-align: center;
     box-shadow: 0 5px 10px rgba(0,0,0,.5);
+}
+
+.profile a{
+    text-decoration:none;
+    color: black;
 }
 
 
@@ -149,8 +159,15 @@
 }
 
 #charactername {
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+.charstats {
+    flex-direction: row;
     text-decoration:none;
-    color: black;
+    flex-wrap: wrap;
+
 }
 
 .butons {
@@ -160,18 +177,18 @@
 }
 
 .custommonsterheader {
-font-family: 'DRAGON HUNTER', sans-serif;
 position: relative;
 width: 100%;
 margin: 0;
 color: white;
-height: 40vh;
+height: 40%;
 overflow: none;
 background-image: url("dragons.avif");
 background-repeat: no-repeat;
 background-size: 100%;
 justify-content: center;
 text-align: center;
+flex-wrap: wrap;
 
 
 }
@@ -183,11 +200,13 @@ top: 0px;
 right: 0px;
 bottom: 0px;
 left: 0px;
-background-color: rgba(0,0,0,0.5)
+background-color: rgba(0,0,0,0.5);
+flex-wrap: wrap;
 }
 
 
   #monstertext {
+    font-family: 'DRAGON HUNTER', sans-serif;
     position: relative;
     color: rgba(254, 254, 254, .95);  
     font-size: 90px;
@@ -196,16 +215,73 @@ background-color: rgba(0,0,0,0.5)
     padding-top: 5%;
   }
 
-  @media screen and (max-width: 600px) {
+.mosterstats{
+    padding-left: 10%;
+}
+.table {
+    padding-left: 21%;
+    flex-direction: row;
+    display: flex;
+}
+
+  #table-one {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 30vw;
+    padding-left: 10%;
+  }
+  
+  #table-one td {
+    border: 1px solid #ddd;
+    line-height: 30px;
+  }
+  
+  #table-one tr:nth-child(even){background-color: rgba(94, 83, 168, .5) ;}
+  
+  
+  #table-one th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #28002C ;
+    color: white;
+    border: 1px solid #ddd;
+    line-height: 30px;
+  }
+
+  #table-two {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 30vw;
+
+  }
+  
+  #table-two td, #table-one th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #table-two tr:nth-child(even){background-color: rgba(206, 24, 35, .4) ;}
+  
+  
+  #table-two th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #CE1823 ;
+    color: white;
+  }
+
+  .strengths {
+    padding-left: 10%;
+  }
+
+  @media screen and (max-width: 650px) {
     .navbar a {
         float: none;
         display: block;
         width: 99%;
       }
-      
-    .custommonsterheader:before{
-        height: 98%
-    }
 
     #monstertext {
         font-size: 40px;

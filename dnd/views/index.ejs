@@ -1,11 +1,12 @@
 
 
   <%- include ('./partials/header.ejs') %>
-<div class="basically-body">
+
   <div class="navbar">
     <a href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
     <a href='/custommonster/new'><i class="fa fa-plus"></i>  Add</a> 
   </div>
+  <div class="basically-body">
     <div class="custommonsterheader">
     <h1 id="monstertext">Your Custom Monsters</h1>
   </div>
@@ -13,10 +14,14 @@
         <% for(let i = 0; i < customMonsters.length; i++){%>
           <div class="profile">
           <li>
-            <img id="homepageimage" src="<%=customMonsters[i].img%>"><br>
+          <img id="homepageimage" src="<%=customMonsters[i].img%>"><br>
           <a id="charactername" href="/custommonster/<%=customMonsters[i].id%>"><%=customMonsters[i].name%></a>
-          <a id="characterused" href="/custommonster/<%=customMonsters[i].used%>"><%=customMonsters[i].used%></a>
-          <a id="charactertype" href="/custommonster/<%=customMonsters[i].type%>"><%=customMonsters[i].type%></a>
+         <div class="charstats">
+          <a href="/custommonster/<%=customMonsters[i].id%>"><%=customMonsters[i].used%></a>
+          <a  href="/custommonster/<%=customMonsters[i].id%>"><%=customMonsters[i].stats.CR%></a>
+          <a href="/custommonster/<%=customMonsters[i].id%>"><%=customMonsters[i].type%></a>
+          <a  href="/custommonster/<%=customMonsters[i].id%>"><%=customMonsters[i].location%></a>
+        </div>
         </li>
       </div>
         <%}%>

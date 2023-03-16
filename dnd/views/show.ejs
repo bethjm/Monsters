@@ -1,39 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
 
   <title>Your Monster</title>
 </head>
-<nav>
-  <div class = "buttons">
-    <form action="/custommonster/<%=customizedMonster.id%>?_method=DELETE" method="POST">
-      <input id="deletebutton" type="submit" value="DELETE">
-      <button><a id="editbutton" href="/custommonster/<%=customizedMonster.id%>/edit">Edit</a></button>
-    </form>
-</div>
-</nav>
-<body class="seeYourMonsters">
-    <h1>See Your Custom Monster</h1>
+<%- include ('./partials/header.ejs') %>
+<body class="view-your-monsters">
+  
+  <div class="navbar">
+    <a href="/custommonster/"><i class="fa fa-fw fa-home"></i> Home</a> 
+    <a href='/custommonster/new'>Delete</a> 
+    <a href="/custommonster/<%=customizedMonster.id%>/edit"><i class="fa fa-edit"></i>Edit</a> 
+    <a href='/custommonster/new'><i class="fa fa-plus"></i>  Add</a> 
+  </div>
+
     <div class="customNameAndPhoto">
     <img src="<%=customizedMonster.img%>">Image</img> 
     <%=customizedMonster.name%>
     </div>
+    <div class="mosterstats"> 
     Type: <%=customizedMonster.type%><br>
     Location: <%=customizedMonster.location%><br>
     Encounter Type:<%=customizedMonster.encounterType%><br>
     Combat Type: <%=customizedMonster.combatType%><br>
-Strengths: <%=customizedMonster.strengths%><br> 
-Strength Notes:<br>
-<%=customizedMonster.strengthNotes%>
-Weaknesses: <%=customizedMonster.weaknesses%><br> 
-Weakness Notes: <br>
-<%=customizedMonster.weaknessNotes%><br> 
+    </div>
 
-<table style="width:100%">
+<div class="table">
+<table id="table-one">
+  <tr>
+    <th>Stats</th>
+    <th>Stats</th>
+  </tr>
 <tr>
 <td>
 CR 
@@ -43,14 +37,13 @@ CR
 </td>
 </tr>
 
-<tr>
 <td>
-  AC
-</td>
-<td>
+  AC 
+  </td>
+  <td>
   <%=customizedMonster.stats.AC%>
-</td>
-</tr>
+  </td>
+  </tr>
 
 <tr>
 <td>
@@ -61,11 +54,17 @@ CR
 </td>
 </tr>
 </table>
+<br>
+<br>
+<br>
 
-  <table style="width:100%">
+  <table  id="table-two">
+    <tr>
+      <th>Stats</th>
+      <th>Stats</th>
+    </tr>
   <tr>
-    <td>
-      STR
+    <td>STR
     </td>
     <td>
       <%=customizedMonster.stats.STR%>
@@ -88,13 +87,16 @@ CR
     <td><%=customizedMonster.CHA%></td>
   </tr>
 </table>
+</div>
 
-      
-    
-    
-    <nav>
-        <a href="/custommonster">Home</a>
-      </nav>
+<div class="strengths">
+Strengths: <%=customizedMonster.strengths%><br> 
+Strength Notes:<br>
+<%=customizedMonster.strengthNotes%>
+Weaknesses: <%=customizedMonster.weaknesses%><br> 
+Weakness Notes: <br>
+<%=customizedMonster.weaknessNotes%><br>  
+</div>   
     
 
 </body>
