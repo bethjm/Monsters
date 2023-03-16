@@ -43,7 +43,7 @@ app.get('/custommonster/:id', (req, res) => {
         res.render('show.ejs', {
           customizedMonster:foundMonster
         })
-        console.log(foundMonster)
+        // console.log(foundMonster)
       })
     })
 

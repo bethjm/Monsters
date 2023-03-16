@@ -1,4 +1,17 @@
+<!DOCTYPE html>
 
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.cdnfonts.com/css/dragon-hunter" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.cdnfonts.com/css/tex-gyre-bonum" rel="stylesheet">
+                
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<div class="header">
   <title>Your Monster</title>
 </head>
 <%- include ('./partials/header.ejs') %>
@@ -12,92 +25,62 @@
   </div>
 
     <div class="customNameAndPhoto">
-    <img src="<%=customizedMonster.img%>">Image</img> 
-    <%=customizedMonster.name%>
-    </div>
-    <div class="mosterstats"> 
-    Type: <%=customizedMonster.type%><br>
-    Location: <%=customizedMonster.location%><br>
-    Encounter Type:<%=customizedMonster.encounterType%><br>
-    Combat Type: <%=customizedMonster.combatType%><br>
+      <h4>Photo goes here. Figure out how to use ::after to get the ripped with the photo</h4>
     </div>
 
-<div class="table">
-<table id="table-one">
-  <tr>
-    <th>Stats</th>
-    <th>Stats</th>
-  </tr>
-<tr>
-<td>
-CR 
-</td>
-<td>
-<%=customizedMonster.stats.CR%>
-</td>
-</tr>
 
-<td>
-  AC 
-  </td>
-  <td>
-  <%=customizedMonster.stats.AC%>
-  </td>
-  </tr>
 
-<tr>
-<td>
-  HP
-</td>
-<td>
-  <%=customizedMonster.stats.HP%>
-</td>
-</tr>
-</table>
-<br>
-<br>
-<br>
+<div class="stats">
+ <h3 id="viewname"><%=customizedMonster.name%></h3> 
+  <div class="line"></div>
 
-  <table  id="table-two">
-    <tr>
-      <th>Stats</th>
-      <th>Stats</th>
-    </tr>
-  <tr>
-    <td>STR
-    </td>
-    <td>
-      <%=customizedMonster.stats.STR%>
-    </td>
-  </tr>
-  <tr>
-    <td>DEX</td>
-    <td><%=customizedMonster.stats.DEX%></td>
-  </tr>
-  <tr>
-    <td>INT</td>
-    <td><%=customizedMonster.stats.INT%></td>
-  </tr>
-  <tr>
-    <td>WIS</td>
-    <td><%=customizedMonster.stats.WIS%></td>
-  </tr>
-  <tr>
-    <td>CHA</td>
-    <td><%=customizedMonster.CHA%></td>
-  </tr>
-</table>
+  <div class="main-stats">
+    <b>Have they been used?</b> <%=customizedMonster.used%><br>
+    <b>Challenge Rating</b> <%=customizedMonster.stats.CR%><br>
+    <b>Armor Class</b> <%=customizedMonster.stats.AC%><br>
+    <b>Hit Points</b> <%=customizedMonster.stats.HP%><br>
+    </div>
+    <div class="line"></div>
+
+    <table style="width:100%" class="showtable">
+      <tr id="statnames">
+        <th>STR</th>
+        <th>DEX</th>
+        <th>INT</th>
+        <th>WIS</th>
+        <th>CHAR</th>
+      </tr>
+      <tr id="fightstats">
+        <td><%=customizedMonster.stats.STR%></td>
+        <td><%=customizedMonster.stats.DEX%></td>
+        <td><%=customizedMonster.stats.INT%></td>
+        <td><%=customizedMonster.stats.WIS%></td>
+        <td><%=customizedMonster.stats.CHAR%></td>
+      </tr>
+    </table>
+    <div class="line"></div>
+
+<div class="monsterstats"> 
+  <b>Type</b> <%=customizedMonster.type%><br>
+  <b>Location</b> <%=customizedMonster.location%><br>
+  <b>Encounter Type</b> <%=customizedMonster.encounterType%><br>
+  <b>Combat Type</b> <%=customizedMonster.combatType%><br>
+  </div>
+
+  <div class="strengths">
+    <b>Strengths</b> <%=customizedMonster.strengths%><br> 
+      <b>Strength Notes:</b><br>
+    <%=customizedMonster.strengthNotes%>
+    <b>Weaknesses</b> <%=customizedMonster.weaknesses%><br> 
+      <b>Weakness Notes</b><br>
+    <%=customizedMonster.weaknessNotes%><br>  
+    </div>   
 </div>
 
-<div class="strengths">
-Strengths: <%=customizedMonster.strengths%><br> 
-Strength Notes:<br>
-<%=customizedMonster.strengthNotes%>
-Weaknesses: <%=customizedMonster.weaknesses%><br> 
-Weakness Notes: <br>
-<%=customizedMonster.weaknessNotes%><br>  
-</div>   
-    
+<div class="notes">
+  <h3>Notes</h3><br>
+  <%=customizedMonster.notes%>
+</div>
 
 </body>
 </html>
