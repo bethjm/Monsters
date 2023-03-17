@@ -113,8 +113,6 @@ font-family: 'TeXGyreBonum', sans-serif;
 
   }
 
-
-  /*  */
   .basically-body{
     display: flex;
     flex-direction: column;
@@ -324,12 +322,152 @@ padding-top: 30vh;
 width: 30vw;
 padding-left: 5%;
   }
+/* //////////////////////////// */
+
+.playersheet{
+  /* the whole player sheet */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; 
+  padding-left: 10%;
+  padding-top: 3%;
+}
+
+.player-top-row{
+  /* the top row with name and basic stats */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+}
+    .name{
+      display: flex;
+      flex-direction: column;
+      padding-right: 10%;
+      /* name and dnd title */
+      /* child of top row */
+    }
+
+    .player-basic-info{
+      flex-direction: row;
+      flex-wrap: wrap; 
+      display: flex;
+      padding-left: 5%;
+      /* basic info */
+      /* child of top row */
+    }
+
+
+.player-info{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  /* holds main stats, player skills and savingthrows */
+}
+  .player-main-stats{
+  display: flex;
+  flex-direction: column;
+  /* width: 10%; */
+  text-align: center;
+  flex-wrap: wrap; 
+  }
+
+  .player-skills-and-savingthrows{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+/* parent of saving thows and skills */
+  }
+
+  .player-saving-throws{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap; 
+  }
+
+  .player-skills{
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    text-align: center;
+    flex-wrap: wrap; 
+
+  }
+
+  #savingthrow {
+
+  }
+
+
+  .personality{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; 
+    padding-right: 15%;
+
+
+    /* child of player info */
+  }
+
+
+
+  #player-row{
+    flex-direction: row;
+    /* this gets all the stats next to the correct name */
+  }
+
+
+  .add-player, .player-home {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    color: white;
+    height: 40%;
+    overflow: none;
+    background-image: url("playerphoto.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    
+    
+    }
+    
+    .add-player:before .player-home:before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.5);
+    flex-wrap: wrap;
+    }
+
+    
+    
+      #player-header {
+        font-family: 'DRAGON HUNTER', sans-serif;
+        position: relative;
+        color: rgba(254, 254, 254, .95);  
+        font-size: 90px;
+        line-height: 0.9;
+        text-align: center;
+        padding-top: 5%;
+      }
+
+
+
+
+
+
 
 
 
 /* ------------- */
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 750px) {
     .navbar a {
         float: none;
         display: block;
@@ -344,4 +482,6 @@ padding-left: 5%;
     .showtable{
       font-size: 12px;
     }
+  
+
   }

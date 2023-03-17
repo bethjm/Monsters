@@ -11,15 +11,23 @@
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
 
+<body>
 
+  <%- include ('./partials/header.ejs') %>
+  
+  <nav class="navbar">
+    <a href="/player"><i class="fa fa-fw fa-home"></i> Home</a> 
+    <a href='/player/new'><i class="fa fa-plus"></i>  Add</a> 
+    <a href="/player/<%=Players.id%>/edit"><i class="fa fa-edit"></i>Edit</a> 
+  </nav>
 
-  <div >
-    <div>
-    <h1>Your Player</h1>
-  </div>
-    <ul>
+  <div class="basically-body" >
+    <div class="add-player">
+      <h1 id="player-header">Add Player</h1>
+    </div>
+    <ul class ="characterprofile">
         <% for(let i = 0; i < Players.length; i++){%>
-          <div >
+          <div class="profile">
           <li>
           <a  href="/Player/<%=Players[i].id%>"><%=Players[i].name%></a>
          <div>
@@ -33,7 +41,7 @@
         <%}%>
       </ul>
     
-
+    </div>
 </body>
 </html>
 </div>

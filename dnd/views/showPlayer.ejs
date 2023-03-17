@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.cdnfonts.com/css/dragon-hunter" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.cdnfonts.com/css/tex-gyre-bonum" rel="stylesheet">
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<div class="header">
+  <title>Your Monster</title>
+</head>
+<body>
+
+  <%- include ('./partials/header.ejs') %>
+
+  <nav class="navbar">
+    <a href="/player"><i class="fa fa-fw fa-home"></i> Home</a> 
+    <a href='/player/new'><i class="fa fa-plus"></i>  Add</a> 
+    <a href="/player/<%=Player.id%>/edit"><i class="fa fa-edit"></i>Edit</a> 
+    <a>
+      <form action="/player/<%=Player.id%>?_method=DELETE" method="POST"><input id="deletebutton" type="submit" value="DELETE">
+      </form>
+    </a>
+  </nav>
+
+  
+
+ <div class="playersheet">
+
+  <div class="player-top-row">
+  <div class="name">
+    <h3>DUNGEONS AND DRAGONS</h3>
+    <p><%=Player.name%></p>
+    <p>CHARACTER NAME</p>
+</div>
+
+<div class="player-basic-info">
+  <div class="player-sheet-row">
+  <p><%=Player.basicInfo.class%></p>
+  <p>CLASS</p>
+</div>
+  <div class="player-sheet-row">
+  <p><%=Player.basicInfo.level%></p>
+  <p>LEVEL</p>
+</div>
+  <div class="player-sheet-row">
+  <p><%=Player.basicInfo.race%></p>
+  <p>RACE</p>
+  </div>
+  <div class="player-sheet-row">
+  <p><%=Player.basicInfo.alignment%></p>
+  <p>ALIGNMENT</p>
+</div>
+  <div class="player-sheet-row">
+  <p><%=Player.basicInfo.experiencePoints%></p>
+  <p>EXPERIENCE POINTS</p>
+</div>
+</div>
+</div>
+
+<div class="player-info">
+<div class="player-main-stats">
+<div class="player-sheet-row">
+<p><%=Player.stats.STR%></p>
+<p>STRENGTH</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.stats.DEX%></p>
+<p>DEXTERITY</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.stats.CON%></p>
+<p>CONSITITUTION</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.stats.INT%></p>
+<p>INTELLIGENCE</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.stats.WIS%></p>
+<p>WISDOM</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.stats.CHA%></p>
+<p>CHARISMA</p>
+</div>
+</div>
+
+<div class="player-skills-and-savingthrows">
+<div class="player-saving-throws">
+<h4>SAVING THROWS</h4>
+<div class="player-sheet-row">
+<p><%=Player.savingThrows.strength%></p>
+<p>STRENGTH</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.savingThrows.dexterity%></p>
+<p>DEXTERITY</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.savingThrows.constitution%></p>
+<p>CONSITITUTION</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.savingThrows.intelligence%></p>
+<p>INTELLIGENCE</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.savingThrows.wisdom%></p>
+<p>WISDOM</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.savingThrows.charisma%></p>
+<p>CHARISMA</p>
+</div>
+</div>
+
+<div class="player-skills">
+<h4>SKILLS</h4>
+<div class="player-sheet-row">
+<p><%=Player.skills.acrobatics%></p>
+<p>ACROBATICS</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.animalHandling%></p>
+<p>ANIMAL HANDLING</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.arcana%></p>
+<p>ARCANA</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.athletics%></p>
+<p>ATHLETICS</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.deception%></p>
+<p>DECEPTION</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.history%></p>
+<p>HISTORY</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.insight%></p>
+<p>INSIGHT</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.intimidation%></p>
+<p>INTIMIDATION</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.investigation%></p>
+<p>INVESTIGATION</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.medicine%></p>
+<p>MEDICINE</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.nature%></p>
+<p>NATURE</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.perception%></p>
+<p>PERCEPTION</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.performance%></p>
+<p>PERFORMANCE</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.persuasion%></p>
+<p>PERSUASION</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.religion%></p>
+<p>RELIGION</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.sleightOfHand%></p>
+<p>SLEIGHT OF HAND</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.stealth%></p>
+<p>STEALTH</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.survival%></p>
+<p>SURVIVAL</p>
+</div>
+<div class="player-sheet-row">
+<p><%=Player.skills.passive%></p>
+<p>PASSIVE WISDOM/PERCEPTION </p>
+</div>
+</div>
+</div>
+
+
+<div class="personality">
+<h4>PERSONALITY TRAITS</h4>
+<p>TRAITS</p>
+<p><%=Player.personality.traits%></p>
+<p>IDEALS</p><br>
+<p><%=Player.personality.ideals%></p>
+<p>BONDS</p><br>
+<p><%=Player.personality.bonds%></p>
+<p>FLAWS</p><br>
+<p><%=Player.personality.flaws%></p>
+
+
+</div>
+
+
+<div class="notes">
+  <h3>NOTES</h3><br>
+  <p><%=Player.notes%></p>
+</div>
+</div>
+</div>
+
+
+</div> 
+</body>
+</html>

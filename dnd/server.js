@@ -71,20 +71,20 @@ app.get('/custommonster/:id/edit', (req, res) => {
 
 app.get('/Player', (req, res) => {
   Player.find({}).then((allPlayers) => {
-   res.render('./player/indexPlayer.ejs', {
+   res.render('indexPlayer.ejs', {
       Players:allPlayers
     })
   })
 })
 
 app.get('/Player/new', (req, res) => {
-res.render('./player/newPlayer.ejs')
+res.render('newPlayer.ejs')
 })
 
 
 app.get('/Player/:id', (req, res) => {
   Player.findById(req.params.id).then((foundPlayer) => {
-      res.render('./player/showPlayer.ejs', {
+      res.render('showPlayer.ejs', {
         Player:foundPlayer
       })
       // console.log(foundPlayer)
@@ -95,7 +95,7 @@ app.get('/Player/:id', (req, res) => {
 
 app.get('/Player/:id/edit', (req, res) => {
   Player.findById(req.params.id).then((foundPlayer) => {
-      res.render('./player/editPlayer.ejs', {
+      res.render('editPlayer.ejs', {
       Player:foundPlayer
       })
   })
