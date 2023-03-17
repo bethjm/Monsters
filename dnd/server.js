@@ -2,8 +2,11 @@ const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 ///////
-const Seed = require('./models/seed.js')
+// const Seed = require('./models/seed.js')
 const MonsterCustom = require('./models/custommonsters.js')
+const Player= require('./models/player.js')
+const Weather=require('./models/weather.js')
+
 
 ///////
 const app = express()
@@ -23,8 +26,12 @@ app.use(express.static('public'));
 //comment this out after I load it once
 //drop collection as off switch ()
 
-//////
+///////
+//All
 
+
+//////
+///MONSTER
 app.get('/custommonster', (req, res) => {
     MonsterCustom.find({}).then((allMonsters) => {
      res.render('index.ejs', {
@@ -36,6 +43,7 @@ app.get('/custommonster', (req, res) => {
 app.get('/custommonster/new', (req, res) => {
 	res.render('new.ejs')
 })
+
 
 
 app.get('/custommonster/:id', (req, res) => {
@@ -56,10 +64,55 @@ app.get('/custommonster/:id/edit', (req, res) => {
         })
     })
 })
-      
+
+////////////////////////////////////
+///Player
+////////////////////////////////////
+
+app.get('/Player', (req, res) => {
+  Player.find({}).then((allPlayers) => {
+   res.render('./player/indexPlayer.ejs', {
+      Players:allPlayers
+    })
+  })
+})
+
+app.get('/Player/new', (req, res) => {
+res.render('./player/newPlayer.ejs')
+})
+
+
+app.get('/Player/:id', (req, res) => {
+  Player.findById(req.params.id).then((foundPlayer) => {
+      res.render('./player/showPlayer.ejs', {
+        Player:foundPlayer
+      })
+      // console.log(foundPlayer)
+    })
+  })
+
+
+
+app.get('/Player/:id/edit', (req, res) => {
+  Player.findById(req.params.id).then((foundPlayer) => {
+      res.render('./player/editPlayer.ejs', {
+      Player:foundPlayer
+      })
+  })
+})
+
+//////////////
+///weather
+app.get('/weather', (req, res) => {
+  Weather.find({}).then((weather) => {
+   res.render('./weatherapp/index.ejs', {
+      weather
+    })
+  })
+})
 
 ////////
-
+//MONSTER
 
 app.post('/custommonster', (req, res) => {
   MonsterCustom.create(req.body)
@@ -79,7 +132,32 @@ app.put('/custommonster/:id', (req, res) => {
       res.redirect('/custommonster')
     })
   })
-      
+
+ ////////////////////////////////////
+  ///Player  
+////////////////////////////////////
+
+  app.post('/Player', (req, res) => {
+    Player.create(req.body)
+      .then((createdPlayer) => {
+        res.redirect('/Player');
+      })
+  });
+  
+  app.delete('/Player/:id', (req, res) => {
+      Player.findByIdAndRemove(req.params.id).then(() => {
+          res.redirect('/Player')
+      }) 
+  })
+  
+  app.put('/Player/:id', (req, res) => {
+      Player.findByIdAndUpdate(req.params.id, req.body).then(() => {
+        res.redirect('/Player')
+      })
+    })
+        
+///////
+//weather
 
 ////////
 mongoose.connect('mongodb://localhost:27017/oftheessence').then(() => {

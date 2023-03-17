@@ -88,6 +88,8 @@ body {
     line-height: 3vh;
     display: flex;
     flex-wrap: wrap;
+    font-family: 'TeXGyreBonum', sans-serif;
+
   }
   
   .navbar a {
@@ -102,6 +104,14 @@ body {
     background-color: rgba(254, 254, 254, .6);
   }
   
+  #deletebutton{
+padding-top: -15px;
+border: none;
+background: none;
+color: white;
+font-family: 'TeXGyreBonum', sans-serif;
+
+  }
 
 
   /*  */

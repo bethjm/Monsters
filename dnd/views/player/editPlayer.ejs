@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>Edit Monsters</title>
+</head>
+<body class="view-your-monsters">
+  <%- include ('./partials/header.ejs') %>
+
+  <div class="navbar">
+    <a href="/custommonster/"><i class="fa fa-fw fa-home"></i> Home</a> 
+    <a href='/custommonster/new'>Delete</a> 
+    <a href="/custommonster/<%=customizedMonster.id%>/edit"><i class="fa fa-edit"></i>Edit</a> 
+    <a href='/custommonster/new'><i class="fa fa-plus"></i>  Add</a> 
+  </div>
+
+  <div class="customNameAndPhoto">
+    <h1>Edit your Monster</h1>
+  </div>
+
+  <div class="stats">
+   <form action="/custommonster/<%=customizedMonster.id%>?_method=PUT" method="POST">
+    <div>
+      <h3 id="viewname">Name: <input type="text" name="name" placeholder="REQUIRED" value="<%=customizedMonster.name%>"/></h3>
+    </div>
+    <div class="line"></div>
+    <div class="main-stats">
+      <label for="used">  <b>Have they been used?</b></label>
+      <select name="used" value="<%=customizedMonster.used%>">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select><br>
+      <b>Challenge Rating</b> <input type="text" name="CR" value="<%=customizedMonster.stats.CR%>"/><br>
+      <b>Armor Class</b>  <input type="text" name="AC" value="<%=customizedMonster.stats.AC%>"/><br>
+      <b>Hit Points</b> <input type="text" name="HP" value="<%=customizedMonster.stats.HP%>"/><br>
+        </div>
+    <div class="line"></div>
+      
+      <div class="showtable">
+          <b>Strength</b> <input type="text" name="STR" value="<%=customizedMonster.stats.STR%>"/><br>
+          <b>Dexterity</b>  <input type="text" name="DEX" value="<%=customizedMonster.stats.DEX%>"/><br>
+          <b>Intellegence</b> <input type="text" name="INT" value="<%=customizedMonster.stats.INT%>"/><br>
+          <b>Wisdom</b> <input type="text" name="WIS" value="<%=customizedMonster.stats.WIS%>"/><br>
+          <b>Charisma</b> <input type="text" name="CHA" value="<%=customizedMonster.stats.CHA%>"/><br>
+
+    </div>
+      <div class="line"></div>
+
+      <div class="monsterstats"><br>
+        <b>Image</b> <input type="url" placeholder="Image Link" name="img" value="<%=customizedMonster.img%>"/><br>
+        <b>Type</b> <input type="text" name="type" placeholder="REQUIRED" value="<%=customizedMonster.type%>"/><br>
+        <b>Location</b> <input type="text" name="location" value="<%=customizedMonster.location%>"/><br>
+      <label for="encounterType"><b>Encounter Type</b></label>
+      <select name="encounterType" value="<%=customizedMonster.encounterType%>">
+        <option value="fight">Fight</option>
+        <option value="social">Socialize</option>
+        <option value="boss">Big Boss</option>
+        <option value="help">Help the party</option>
+        <option value="random">Random encounter</option>
+      </select><br>
+
+      <label for="combatType"><b>Combat Type</b></label>
+      <select name="combatType" value="<%=customizedMonster.combatType%>">
+        <option value="brawl">Brawl</option>
+        <option value="skirmish">Skirmish</option>
+        <option value="magic">Magic</option>
+        <option value="all">All</option>
+        <option value="none">None</option>
+      </select><br>
+    </div>
+
+    <div class="strengths">
+      <b>Strengths</b> <input type="text" name="strengths" value="<%=customizedMonster.strengths%>" placeholder="List out general strengths"/><br>
+      <b>Strength Notes:</b><br>
+        <textarea type="text" name="strengthNotes" value="<%=customizedMonster.strengthNotes%>"></textarea><br>
+        <b>Weaknesses</b> <input type="text" name="weaknesses" value="<%=customizedMonster.weakness%>" placeholder="List out general weaknesses"/><br>
+        <b>Weakness Notes</b><br>
+        <textarea type="text" name="weaknessNotes" value="<%=customizedMonster.weaknessNotes%>"></textarea><br>
+      </div>
+    </div>
+
+    <div class="notes">
+      <h3>Notes</h3><br> 
+      <textarea type="text" name="notes" value="<%=customizedMonster.notes%>"></textarea><br>
+        <input type="submit" value="Save Changes"/><br>
+      </div>
+       </form>
+</body>
+
+</body>
+</html>

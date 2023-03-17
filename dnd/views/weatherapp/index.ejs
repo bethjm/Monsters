@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/weather.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link href="https://fonts.cdnfonts.com/css/dragon-hunter" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.cdnfonts.com/css/tex-gyre-bonum" rel="stylesheet"> 
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <title>Weather</title>
+</head>
+<body>
+    <div class="header">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+              <a class="menuitem" href="#">Monster catalog</a>
+              <a href='/custommonster'>Your Monsters</a>
+              <a href='/Player'>Your Players</a>
+              <a href='/weather'>Weather generator</a>
+              <a href="#">Encounter generator</a>
+              <a href="#">Roll dice</a>
+        </div>
+        
+        <div id="main">
+          <h1 class="headertext">DM DOCK</h1>
+          <div class="menubutton"><span style="font-size:50px;cursor:pointer" onclick="openMenu()"><i id="dragon" class='fas fa-dragon' style='font-size:30px;color:#CE1823'></i></span></div>
+        </div>
+    </div>
+    
+
+    <h1>What season is it?</h1>
+    <button class="weatherbutton" onclick="summer()" id="summer">Summer</button>
+    <button class="weatherbutton" onclick="fall()" id="fall">Fall</button>
+    <button class="weatherbutton" onclick="winter()" id="winter">Winter</button>
+    <button class="weatherbutton" onclick="spring()" id="spring">Spring</button>
+
+    <p id="forecast"></p>
+
+    </div>
+
+    <script>
+                openMenu = () => {
+          document.getElementById("mySidenav").style.width = "300px";
+          document.getElementById("main").style.marginLeft = "300px";
+          document.body.style.backgroundColor = "rgba(40, 0, 44, .6)";
+        }
+        
+        closeMenu=() => {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+          document.body.style.backgroundColor = "white";
+        }
+
+let summer = () => {
+
+let tempsArray = {
+    tempRangeE: [56, 57, 58, 59, 60, 61, 62, 63, 64],
+    tempRangeF: [65, 66, 67, 68, 69],
+    tempRangeG: [70, 71, 72, 73, 74, 75, 76, 77, 78, 79],
+    tempRangeH: [80, 81, 82, 83, 84, 86, 86, 87, 88, 89],
+    tempRangeI: [90, 91, 92, 93, 94, 95],
+    tempRangeJ: [96, 97, 98, 99, 100],
+    tempRangeK: [101, 102, 103, 104, 105],
+    tempRangeL: [106, 107, 108, 109, 110]
+};
+
+let windArray = {
+    windRangeA: [0],
+    windRangeB: [1, 2, 3, 4, 5, 6, 7],
+    windRangeC: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    windRangeD: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    windRangeE: [32, 33, 34, 35,36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
+    windRangeF: [47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63],
+    windRangeG: [64, 65, 66, 67, 68]
+}
+
+
+let percipitationArray = {
+    allNone: ['no percipitation'],
+    allRain: ['light rain','drizzle','mist',],
+    allRainDanger: ['flood level rain','intense down pour'],
+    springAndSummerThunderAndLightningDanger: ['dangerous thunder and lightning storm with down pour','dangerous thunder and lightning storm with rain','fire starting lightning','dangerous thunder and lightning with flood level rains'],
+    summerThunderAndLightning: ['thunder and lightning','thunder storm with some rain','lightning storm with some rain'],
+}
+
+
+let showOnScreen = []
+////End arrays
+
+let randomSummerTempRange = () => {
+    let summerTemprange = Math.random();
+
+    if (summerTemprange <= .15 ){
+        showOnScreen.push('A')
+    } else if (summerTemprange >= .15 && summerTemprange <= .60){
+        showOnScreen.push('B')
+    } else if (summerTemprange >= .60 && summerTemprange <= .85){
+        showOnScreen.push('C')
+    } else if (summerTemprange >= .85 && summerTemprange <= .90){
+        showOnScreen.push('D')
+    } else if (summerTemprange >= .90 && summerTemprange <= .95){
+        showOnScreen.push('E')
+    } else if (summerTemprange >= .95 && summerTemprange <= 1){
+        showOnScreen.push('F')
+    }
+}
+//this calls the function
+randomSummerTempRange()
+
+randomExactSummerTemp = () => {
+    if (showOnScreen[0] === 'A') {
+        let rangeATemp = tempsArray['tempRangeG'][Math.floor(Math.random()*tempsArray['tempRangeG'].length)]
+            showOnScreen.push(rangeATemp)
+    } else if (showOnScreen[0] == 'B') {
+        let rangeBTemp = tempsArray['tempRangeH'][Math.floor(Math.random()*tempsArray['tempRangeH'].length)]
+        showOnScreen.push(rangeBTemp)
+    } else if (showOnScreen[0] == 'C') {
+        let rangeCTemp = tempsArray['tempRangeI'][Math.floor(Math.random()*tempsArray['tempRangeI'].length)]
+        showOnScreen.push(rangeCTemp)
+    } else if (showOnScreen[0] == 'D') {
+        let rangeDTemp = tempsArray['tempRangeJ'][Math.floor(Math.random()*tempsArray['tempRangeJ'].length)]
+        showOnScreen.push(rangeDTemp)
+    } else if (showOnScreen[0] == 'E') {
+        let rangeETemp = tempsArray['tempRangeK'][Math.floor(Math.random()*tempsArray['tempRangeK'].length)]
+        showOnScreen.push(rangeETemp)
+    } else if (showOnScreen[0] == 'F') {
+        let rangeFTemp = tempsArray['tempRangeL'][Math.floor(Math.random()*tempsArray['tempRangeL'].length)]
+        showOnScreen.push(rangeFTemp)
+    }
+}
+//this calls the function
+randomExactSummerTemp()
+
+
+//humidity
+
+let randomSummerHumidityRange = () => {
+    let summerHumidityrange = Math.random();
+    if (showOnScreen[1] < 90) {
+        let highHeatHumidityrange = Math.random();
+        if (highHeatHumidityrange <= .3){
+            showOnScreen.push('high')
+        } else if (highHeatHumidityrange > .3 && highHeatHumidityrange <= .6){
+            showOnScreen.push('very high')
+        } else if (highHeatHumidityrange > .6 && highHeatHumidityrange <= .8){
+            showOnScreen.push('medium')
+        } else if (highHeatHumidityrange > .8 && highHeatHumidityrange <= 1){
+            showOnScreen.push('low')
+        }
+    }  else if (summerHumidityrange <= .2 ){
+        showOnScreen.push('low')
+    } else if (summerHumidityrange > .2 && summerHumidityrange <= .6){
+        showOnScreen.push('medium')
+    } else if (summerHumidityrange > .6 && summerHumidityrange <= .8){
+        showOnScreen.push('high')
+    } else if (summerHumidityrange > .8 && summerHumidityrange <= 1){
+        showOnScreen.push('very high')
+    } 
+}
+
+randomSummerHumidityRange()
+
+let summerPercip = () => {
+    let percipRange = Math.random();
+    if (showOnScreen[1] > 90){
+        let highPercipRange = Math.random();
+        if (highPercipRange <.5){
+            let range = percipitationArray['springAndSummerThunderAndLightningDanger'][Math.floor(Math.random()*percipitationArray['springAndSummerThunderAndLightningDanger'].length)]
+            showOnScreen.push(range)
+        } else if (highPercipRange > .5 && highPercipRange < .7){
+            let range = percipitationArray['summerThunderAndLightning'][Math.floor(Math.random()*percipitationArray['summerThunderAndLightning'].length)]
+            showOnScreen.push(range)
+        }  else if (highPercipRange > .7 && highPercipRange < 9){
+            let range = percipitationArray['allRain'][Math.floor(Math.random()*percipitationArray['allRain'].length)]
+            showOnScreen.push(range)
+        } 
+        else if (highPercipRange > .9 && highPercipRange < 1){
+            let range = percipitationArray['allNone'][Math.floor(Math.random()*percipitationArray['allNone'].length)]
+            showOnScreen.push(range)
+        } 
+    } else if (percipRange <= .6){
+        let range = percipitationArray['allNone'][Math.floor(Math.random()*percipitationArray['allNone'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .6 && percipRange <.9){
+        let range = percipitationArray['allRain'][Math.floor(Math.random()*percipitationArray['allRain'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .9 && percipRange <1){
+        let range = percipitationArray['summerThunderAndLightning'][Math.floor(Math.random()*percipitationArray['summerThunderAndLightning'].length)]
+        showOnScreen.push(range)
+    }
+    }
+
+    //this calls the function
+    summerPercip()
+
+
+let summerStateOfSky = () => {
+    let summerSkyRange = Math.random();
+    if (showOnScreen[4]=== 'rain' || showOnScreen[4]=== 't&l'){
+        showOnScreen.push('cloudy')
+    } else if (summerSkyRange < .3){
+        showOnScreen.push('cloudy')
+    } else if (summerSkyRange > .3 && summerSkyRange < .9){
+        showOnScreen.push('sunny')
+    }  else if (showOnScreen[4] != 't&l' && summerSkyRange > .9 && summerSkyRange < 1){
+        showOnScreen.push('heat lightning')
+    } else {
+        showOnScreen.push('sunny')
+    }
+}
+
+//this calls the array
+summerStateOfSky()
+
+let summerStateOfWind = () => {
+    let windRange = Math.random();
+    if (showOnScreen[4] == 't&l' || showOnScreen == 'rain'){
+        let stormWindRange = Math.random();
+        if (stormWindRange < .3){
+            showOnScreen.push(0)
+        } else if (stormWindRange > .3 && stormWindRange < .6){
+            let range = windArray['windRangeB'][Math.floor(Math.random()*windArray['windRangeB'].length)]
+            showOnScreen.push(range)
+        } else if (stormWindRange > .6 && stormWindRange < .9){
+            let range = windArray['windRangeC'][Math.floor(Math.random()*windArray['windRangeC'].length)]
+            showOnScreen.push(range)
+        }  else if (stormWindRange > .9 && stormWindRange < 1){
+            let range = windArray['windRangeG'][Math.floor(Math.random()*windArray['windRangeG'].length)]
+            showOnScreen.push(range)
+        } 
+    }  else if (windRange <= .5){
+        showOnScreen.push(0)
+    } else if (windRange > .5 && windRange <.7){
+        let range = windArray['windRangeB'][Math.floor(Math.random()*windArray['windRangeB'].length)]
+        showOnScreen.push(range)
+    } else if (windRange > .7 && windRange <.9){
+        let range = windArray['windRangeC'][Math.floor(Math.random()*windArray['windRangeC'].length)]
+        showOnScreen.push(range)
+    } else if (windRange > .9 && windRange < 1){
+        let range = windArray['windRangeG'][Math.floor(Math.random()*windArray['windRangeG'].length)]
+        showOnScreen.push(range)
+    }
+    }
+
+    //this calls the function
+    summerStateOfWind()
+
+            document.getElementById("forecast").innerHTML = `Temp is ${showOnScreen[1]}. Humidity is ${showOnScreen[2]}. Percipitation is ${showOnScreen[3]}. The sky looks ${showOnScreen[4]}. The wind is ${showOnScreen[5]} miles per hour`;
+
+        };
+
+let fall = () =>{
+    let tempsArray = {
+    tempRangeC: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+    tempRangeD: [35, 36, 37, 38, 39, 40],
+    tempRangeE: [41, 42, 43, 44, 45],
+    tempRangeF: [45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55],
+    tempRangeG: [56, 57, 58, 59, 60, 61, 62, 63, 64],
+    tempRangeH: [65, 66, 67, 68, 69],
+
+};
+
+let windArray = {
+    windRangeA: [0],
+    windRangeB: [1, 2, 3, 4, 5, 6, 7],
+    windRangeC: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    windRangeD: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    windRangeE: [32, 33, 34, 35,36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
+    windRangeF: [47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63],
+    windRangeG: [64, 65, 66, 67, 68]
+}
+
+
+let percipitationArray = {
+    allNone: ['no percipitation'],
+    allRain: ['light rain','drizzle','mist',],
+    allRainDanger: ['flood level rain','intense down pour'],
+    allHail: ['light hail', 'hail mixed with snow'],
+    springAndSummerThunderAndLightningDanger: ['dangerous thunder and lightning storm with down pour','dangerous thunder and lightning storm with rain','fire starting lightning','dangerous thunder and lightning with flood level rains'],
+    summerThunderAndLightning: ['thunder and lightning','thunder storm with some rain','lightning storm with some rain'],
+    fallSnow: ['1 inch of fluffy snow', '3 inches of fluffy snow','1 inch of wet snow', '3 inches of wet snow',],
+    fallAndWinterSnowDanger: ['dangerous white out blizzard','blizzard','12 inches of snow'],
+    fallAndWinterHailDanger: ['golf ball sized hail','pea sized hail'],
+    winterSnow: ['1 inch of fluffy snow', '3 inches of fluffy snow', '6 inches of fluffy snow','1 inch of wet snow', '3 inches of wet snow', '6 inches of wet snow'],   
+}
+
+
+let showOnScreen = []
+////End arrays
+
+let randomFallTempRange = () => {
+    let FallTemprange = Math.random();
+
+    if (FallTemprange <= .1 ){
+        showOnScreen.push('A')
+    } else if (FallTemprange >= .1 && FallTemprange <= .25){
+        showOnScreen.push('B')
+    } else if (FallTemprange >= .25 && FallTemprange <= .60){
+        showOnScreen.push('C')
+    } else if (FallTemprange >= .60 && FallTemprange <= .90){
+        showOnScreen.push('D')
+    } else if (FallTemprange >= .90 && FallTemprange <= .96){
+        showOnScreen.push('E')
+    } else if (FallTemprange >= .96 && FallTemprange <= 1){
+        showOnScreen.push('F')
+    }
+}
+//this calls the function
+randomFallTempRange()
+
+randomExactFallTemp = () => {
+    if (showOnScreen[0] === 'A') {
+        let rangeATemp = tempsArray['tempRangeC'][Math.floor(Math.random()*tempsArray['tempRangeC'].length)]
+            showOnScreen.push(rangeATemp)
+    } else if (showOnScreen[0] == 'B') {
+        let rangeBTemp = tempsArray['tempRangeD'][Math.floor(Math.random()*tempsArray['tempRangeD'].length)]
+        showOnScreen.push(rangeBTemp)
+    } else if (showOnScreen[0] == 'C') {
+        let rangeCTemp = tempsArray['tempRangeE'][Math.floor(Math.random()*tempsArray['tempRangeE'].length)]
+        showOnScreen.push(rangeCTemp)
+    } else if (showOnScreen[0] == 'D') {
+        let rangeDTemp = tempsArray['tempRangeF'][Math.floor(Math.random()*tempsArray['tempRangeF'].length)]
+        showOnScreen.push(rangeDTemp)
+    } else if (showOnScreen[0] == 'E') {
+        let rangeETemp = tempsArray['tempRangeG'][Math.floor(Math.random()*tempsArray['tempRangeG'].length)]
+        showOnScreen.push(rangeETemp)
+    } else if (showOnScreen[0] == 'F') {
+        let rangeFTemp = tempsArray['tempRangeH'][Math.floor(Math.random()*tempsArray['tempRangeH'].length)]
+        showOnScreen.push(rangeFTemp)
+    }
+}
+//this calls the function
+randomExactFallTemp()
+
+
+//humidity
+
+let randomFallHumidityRange = () => {
+    let FallHumidityrange = Math.random();
+   if (FallHumidityrange <= .8 ){
+        showOnScreen.push('low')
+    } else if (FallHumidityrange > .8 && FallHumidityrange <= .9){
+        showOnScreen.push('medium')
+    } else if (FallHumidityrange > .9 && FallHumidityrange <= 1){
+        showOnScreen.push('high')
+    }
+}
+
+//this calls the function
+randomFallHumidityRange()
+
+let fallPercip = () => {
+    let percipRange = Math.random();
+
+    if (percipRange <= .5){
+        let range = percipitationArray['allNone'][Math.floor(Math.random()*percipitationArray['allNone'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .5 && percipRange <.8){
+        let range = percipitationArray['allRain'][Math.floor(Math.random()*percipitationArray['allRain'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .8 && percipRange <.9){
+        let range = percipitationArray['fallSnow'][Math.floor(Math.random()*percipitationArray['allRain'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .9 && percipRange <.95){
+        let range = percipitationArray['fallAndWinterSnowDanger'][Math.floor(Math.random()*percipitationArray['FallThunderAndLightning'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .95 && percipRange <1){
+        let range = percipitationArray['fallAndWinterHailDanger'][Math.floor(Math.random()*percipitationArray['FallThunderAndLightning'].length)]
+        showOnScreen.push(range)
+    }
+}
+
+    //this calls the function
+    fallPercip()
+
+
+let fallStateOfSky = () => {
+    let FallSkyRange = Math.random();
+    if (showOnScreen[4]== 'rain' || showOnScreen[4]== 'snow' || showOnScreen[4]=== 'hail'){
+        showOnScreen.push('cloudy')
+    } else if (FallSkyRange < .4){
+        showOnScreen.push('cloudy')
+    } else if (FallSkyRange > .4 && FallSkyRange < 1){
+        showOnScreen.push('sunny')
+    } else {
+        showOnScreen.push('cloudy')
+    }
+}
+
+//this calls the array
+fallStateOfSky()
+
+let fallStateOfWind = () => {
+    let windRange = Math.random();
+    if (showOnScreen[4] == 'golf ball sized hail' || showOnScreen == 'pea sized hail' || showOnScreen == 'blizzard'){
+        let stormWindRange = Math.random();
+        if (stormWindRange > 0 && stormWindRange < .5){
+            let range = windArray['windRangeD'][Math.floor(Math.random()*windArray['windRangeD'].length)]
+            showOnScreen.push(range)
+        } else if (stormWindRange > .5 && stormWindRange < 1){
+            let range = windArray['windRangeE'][Math.floor(Math.random()*windArray['windRangeE'].length)]
+            showOnScreen.push(range)
+        } 
+    }  else if (windRange <= .3){
+        showOnScreen.push(0)
+    } else if (windRange > .3 && windRange <.6){
+        let range = windArray['windRangeC'][Math.floor(Math.random()*windArray['windRangeC'].length)]
+        showOnScreen.push(range)
+    } else if (windRange > .7 && windRange <.95){
+        let range = windArray['windRangeD'][Math.floor(Math.random()*windArray['windRangeD'].length)]
+        showOnScreen.push(range)
+    } else if (windRange > .95 && windRange < 1){
+        let range = windArray['windRangeF'][Math.floor(Math.random()*windArray['windRangeF'].length)]
+        showOnScreen.push(range)
+    }
+    }
+
+    //this calls the function
+    fallStateOfWind()
+
+    // this calls the function
+    // printOnScreenFall()
+
+   document.getElementById("forecast").innerHTML = `Temp is ${showOnScreen[1]}. Humidity is ${showOnScreen[2]}. Percipitation is ${showOnScreen[3]}. The sky looks ${showOnScreen[4]}. The wind is ${showOnScreen[5]} miles per hour`;
+
+}
+
+let winter = () => {
+    //make into winter
+//when pasting back in dont add arrays
+//figure out a way to prompt everything in console
+//start thinking of a way to get this to work webpage
+
+//Arrays
+let tempsArray = {
+    tempRangeZ: [-20, -19, -18, -17, -16, -15, -14, -13, -12, -11, -10],
+    tempRangeA: [-9, -8, -7, -6, -5, -4, -3, -2, -1],
+    tempRangeB: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    tempRangeC: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+    tempRangeD: [35, 36, 37, 38, 39, 40],
+    tempRangeE: [41, 42, 43, 44, 45],
+    tempRangeF: [45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55],
+    tempRangeE: [56, 57, 58, 59, 60, 61, 62, 63, 64],
+    tempRangeF: [65, 66, 67, 68, 69],
+};
+
+let windArray = {
+    windRangeA: [0],
+    windRangeB: [1, 2, 3, 4, 5, 6, 7],
+    windRangeC: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    windRangeD: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    windRangeE: [32, 33, 34, 35,36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
+    windRangeF: [47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63],
+    windRangeG: [64, 65, 66, 67, 68]
+}
+
+
+let percipitationArray = {
+    allNone: ['no percipitation'],
+    allRain: ['light rain','drizzle','mist',],
+    allRainDanger: ['flood level rain','intense down pour'],
+    allHail: ['light hail', 'hail mixed with snow'],
+    fallSnow: ['1 inch of fluffy snow', '3 inches of fluffy snow','1 inch of wet snow', '3 inches of wet snow',],
+    fallAndWinterSnowDanger: ['dangerous white out blizzard','blizzard','12 inches of snow'],
+    fallAndWinterHailDanger: ['golf ball sized hail','pea sized hail'],
+    winterSnow: ['1 inch of fluffy snow', '3 inches of fluffy snow', '6 inches of fluffy snow','1 inch of wet snow', '3 inches of wet snow', '6 inches of wet snow'],   
+}
+
+
+let showOnScreen = []
+////End arrays
+
+let randomWinterTempRange = () => {
+    let WinterTemprange = Math.random();
+
+    if (WinterTemprange <= .1 ){
+        showOnScreen.push('A')
+    } else if (WinterTemprange >= .1 && WinterTemprange <= .2){
+        showOnScreen.push('B')
+    } else if (WinterTemprange >= .2 && WinterTemprange <= .4){
+        showOnScreen.push('C')
+    } else if (WinterTemprange >= .4 && WinterTemprange <= .70){
+        showOnScreen.push('D')
+    } else if (WinterTemprange >= .70 && WinterTemprange <= .90){
+        showOnScreen.push('E')
+    } else if (WinterTemprange >= .9 && WinterTemprange <= 1){
+        showOnScreen.push('F')
+    }
+}
+//this calls the function
+randomWinterTempRange()
+
+randomExactWinterTemp = () => {
+    if (showOnScreen[0] === 'A') {
+        let rangeATemp = tempsArray['tempRangeZ'][Math.floor(Math.random()*tempsArray['tempRangeZ'].length)]
+            showOnScreen.push(rangeATemp)
+    } else if (showOnScreen[0] == 'B') {
+        let rangeBTemp = tempsArray['tempRangeA'][Math.floor(Math.random()*tempsArray['tempRangeA'].length)]
+        showOnScreen.push(rangeBTemp)
+    } else if (showOnScreen[0] == 'C') {
+        let rangeCTemp = tempsArray['tempRangeB'][Math.floor(Math.random()*tempsArray['tempRangeB'].length)]
+        showOnScreen.push(rangeCTemp)
+    } else if (showOnScreen[0] == 'D') {
+        let rangeDTemp = tempsArray['tempRangeC'][Math.floor(Math.random()*tempsArray['tempRangeC'].length)]
+        showOnScreen.push(rangeDTemp)
+    } else if (showOnScreen[0] == 'E') {
+        let rangeETemp = tempsArray['tempRangeB'][Math.floor(Math.random()*tempsArray['tempRangeD'].length)]
+        showOnScreen.push(rangeETemp)
+    } else if (showOnScreen[0] == 'F') {
+        let rangeFTemp = tempsArray['tempRangeE'][Math.floor(Math.random()*tempsArray['tempRangeE'].length)]
+        showOnScreen.push(rangeFTemp)
+    }
+}
+//this calls the function
+randomExactWinterTemp()
+
+
+//humidity
+
+let randomWinterDryRange = () => {
+    let WinterDryrange = Math.random();
+    if (WinterDryrange <= .2 ){
+        showOnScreen.push('very dry')
+    } else if (WinterDryrange > .2 && WinterDryrange <= .6){
+        showOnScreen.push('dry')
+    } else if (WinterDryrange > .6 && WinterDryrange <= .8){
+        showOnScreen.push('kind of dry')
+    } else if (WinterDryrange > .9 && WinterDryrange <= 1){
+        showOnScreen.push('not very dry')
+    } 
+}
+
+//this calls the function
+randomWinterDryRange()
+
+let winterPercip = () => {
+    let percipRange = Math.random();
+    if (showOnScreen[1] > 32){
+        let highPercipRange = Math.random();
+        if (highPercipRange <.5){
+            let range = percipitationArray['winterSnow'][Math.floor(Math.random()*percipitationArray['winterSnow'].length)]
+            showOnScreen.push(range)
+        } else if (highPercipRange > .5 && highPercipRange < .6){
+            let range = percipitationArray['fallAndWinterSnowDanger'][Math.floor(Math.random()*percipitationArray['fallAndWinterSnowDanger'].length)]
+            showOnScreen.push(range)
+        }  else if (highPercipRange > .6 && highPercipRange < .7){
+            let range = percipitationArray['allHail'][Math.floor(Math.random()*percipitationArray['allHail'].length)]
+            showOnScreen.push(range)
+        } 
+        else if (highPercipRange > .7 && highPercipRange < 1){
+            let range = percipitationArray['allNone'][Math.floor(Math.random()*percipitationArray['allNone'].length)]
+            showOnScreen.push(range)
+        } 
+    } else if (percipRange <= .6){
+        let range = percipitationArray['allNone'][Math.floor(Math.random()*percipitationArray['allNone'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .6 && percipRange <.9){
+        let range = percipitationArray['allRain'][Math.floor(Math.random()*percipitationArray['allRain'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .9 && percipRange <1){
+        let range = percipitationArray['fallAndWinterSnowDanger'][Math.floor(Math.random()*percipitationArray['WinterThunderAndLightning'].length)]
+        showOnScreen.push(range)
+    }
+    }
+
+    //this calls the function
+    winterPercip()
+
+
+let winterStateOfSky = () => {
+    if (showOnScreen[4]=== 'no percipitation'){
+        showOnScreen.push('sunny')
+    } else if (showOnScreen[4]!= 'no percipitation'){
+        showOnScreen.push('cloudy')
+}
+}
+
+//this calls the array
+winterStateOfSky()
+
+let winterStateOfWind = () => {
+    let windRange = Math.random();
+    if (showOnScreen[4] ==  'dangerous white out blizzard'|| showOnScreen[4] == 'blizzard' ||showOnScreen[4] == '12 inches of snow' || showOnScreen[4] == 'golf ball sized hail' || showOnScreen[4] =='pea sized hail'|| showOnScreen[4] == 'dangerous white out blizzard' || showOnScreen[4] =='blizzard' || showOnScreen[4] =='12 inches of snow'){
+        let stormWindRange = Math.random();
+        if (stormWindRange < .3){
+            showOnScreen.push(0)
+        } else if (stormWindRange > .3 && stormWindRange < .6){
+            let range = windArray['windRangeD'][Math.floor(Math.random()*windArray['windRangeD'].length)]
+            showOnScreen.push(range)
+        } else if (stormWindRange > .6 && stormWindRange < .9){
+            let range = windArray['windRangeE'][Math.floor(Math.random()*windArray['windRangeE'].length)]
+            showOnScreen.push(range)
+        }  else if (stormWindRange > .9 && stormWindRange < 1){
+            let range = windArray['windRangeF'][Math.floor(Math.random()*windArray['windRangeF'].length)]
+            showOnScreen.push(range)
+        } 
+    }  else if (windRange <= .5){
+        showOnScreen.push(0)
+    } else if (windRange > .5 && windRange <.7){
+        let range = windArray['windRangeB'][Math.floor(Math.random()*windArray['windRangeB'].length)]
+        showOnScreen.push(range)
+    } else if (windRange > .7 && windRange <.9){
+        let range = windArray['windRangeC'][Math.floor(Math.random()*windArray['windRangeC'].length)]
+        showOnScreen.push(range)
+    } else if (windRange > .9 && windRange < 1){
+        let range = windArray['windRangeE'][Math.floor(Math.random()*windArray['windRangeE'].length)]
+        showOnScreen.push(range)
+    }
+    }
+
+    //this calls the function
+    winterStateOfWind()
+
+    document.getElementById("forecast").innerHTML = `Temp is ${showOnScreen[1]}. Humidity is ${showOnScreen[2]}. Percipitation is ${showOnScreen[3]}. The sky looks ${showOnScreen[4]}. The wind is ${showOnScreen[5]} miles per hour`;
+
+}
+
+let spring = () => {
+    let tempsArray = {
+    tempRangeE: [45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55],
+    tempRangeF: [56, 57, 58, 59, 60, 61, 62, 63, 64],
+    tempRangeG: [65, 66, 67, 68, 69],
+    tempRangeH: [70, 71, 72, 73, 74, 75, 76, 77, 78, 79],
+    tempRangeI: [80, 81, 82, 83, 84, 86, 86, 87, 88, 89],
+};
+
+let windArray = {
+    windRangeA: [0],
+    windRangeB: [1, 2, 3, 4, 5, 6, 7],
+    windRangeC: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    windRangeD: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    windRangeE: [32, 33, 34, 35,36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
+    windRangeF: [47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63],
+    windRangeG: [64, 65, 66, 67, 68]
+}
+
+
+let percipitationArray = {
+    allNone: ['no percipitation'],
+    allRain: ['light rain','drizzle','mist',],
+    allRainDanger: ['flood level rain','intense down pour'],
+    allHail: ['light hail', 'hail mixed with snow'],
+    springAndSummerThunderAndLightningDanger: ['dangerous thunder and lightning storm with down pour','dangerous thunder and lightning storm with rain','fire starting lightning','dangerous thunder and lightning with flood level rains'],
+    summerThunderAndLightning: ['thunder and lightning','thunder storm with some rain','lightning storm with some rain'],
+}
+
+let showOnScreen = []
+////End arrays
+
+let randomSpringTempRange = () => {
+    let SpringTemprange = Math.random();
+
+    if (SpringTemprange <= .2 ){
+        showOnScreen.push('A')
+    } else if (SpringTemprange >= .2 && SpringTemprange <= .4){
+        showOnScreen.push('B')
+    } else if (SpringTemprange >= .4 && SpringTemprange <= .7){
+        showOnScreen.push('C')
+    } else if (SpringTemprange >= .7 && SpringTemprange <= .9){
+        showOnScreen.push('D')
+    } else if (SpringTemprange >= .9 && SpringTemprange <= .95){
+        showOnScreen.push('E')
+    } else if (SpringTemprange >= .95 && SpringTemprange <= 1){
+        showOnScreen.push('F')
+    }
+    console.log('temp range working')
+}
+//this calls the function
+randomSpringTempRange()
+
+randomExactSpringTemp = () => {
+    if (showOnScreen[0] === 'A') {
+        let rangeATemp = tempsArray['tempRangeE'][Math.floor(Math.random()*tempsArray['tempRangeE'].length)]
+            showOnScreen.push(rangeATemp)
+    } else if (showOnScreen[0] == 'B') {
+        let rangeBTemp = tempsArray['tempRangeF'][Math.floor(Math.random()*tempsArray['tempRangeF'].length)]
+        showOnScreen.push(rangeBTemp)
+    } else if (showOnScreen[0] == 'C') {
+        let rangeCTemp = tempsArray['tempRangeG'][Math.floor(Math.random()*tempsArray['tempRangeG'].length)]
+        showOnScreen.push(rangeCTemp)
+    } else if (showOnScreen[0] == 'D') {
+        let rangeDTemp = tempsArray['tempRangeH'][Math.floor(Math.random()*tempsArray['tempRangeH'].length)]
+        showOnScreen.push(rangeDTemp)
+    } else if (showOnScreen[0] == 'E') {
+        let rangeETemp = tempsArray['tempRangeI'][Math.floor(Math.random()*tempsArray['tempRangeI'].length)]
+        showOnScreen.push(rangeETemp)
+    } else if (showOnScreen[0] == 'F') {
+        let rangeFTemp = tempsArray['tempRangeJ'][Math.floor(Math.random()*tempsArray['tempRangeJ'].length)]
+        showOnScreen.push(rangeFTemp)
+    }
+}
+//this calls the function
+randomExactSpringTemp()
+
+
+//humidity
+
+let randomSpringHumidityRange = () => {
+    let SpringHumidityrange = Math.random();
+    if (SpringHumidityrange <= .8 ){
+        showOnScreen.push('low')
+    } else if (SpringHumidityrange > .7 && SpringHumidityrange <= .9){
+        showOnScreen.push('medium')
+    } else if (SpringHumidityrange > .9 && SpringHumidityrange <= .95){
+        showOnScreen.push('high')
+    } else if (SpringHumidityrange > .95 && SpringHumidityrange <= 1){
+        showOnScreen.push('very high')
+    } 
+}
+
+//this calls the function
+randomSpringHumidityRange()
+
+let springPercip = () => {
+    let percipRange = Math.random();
+    if (highPercipRange > .5){
+        let range = percipitationArray['allRain'][Math.floor(Math.random()*percipitationArray['allRain'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .6 && percipRange < .65){
+        let range = percipitationArray['allRainDanger'][Math.floor(Math.random()*percipitationArray[allRainDanger].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .65 && percipRange <.7){
+        let range = percipitationArray['allHail'][Math.floor(Math.random()*percipitationArray['allHail'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .7 && percipRange <.8){
+        let range = percipitationArray['springAndSummerThunderAndLightningDanger'][Math.floor(Math.random()*percipitationArray['allHail'].length)]
+        showOnScreen.push(range)
+    } else if (percipRange > .8 && percipRange <1){
+        let range = percipitationArray['allNone'][Math.floor(Math.random()*percipitationArray['allNone'].length)]
+        showOnScreen.push(range)
+    }
+    console.log('percp working')
+    }
+
+    //this calls the function
+    springPercip()
+
+
+let springStateOfSky = () => {
+    let SpringSkyRange = Math.random();
+    if (showOnScreen[4]=== 'no percipitation'){
+        showOnScreen.push('sunny')
+    } else if (showOnScreen[4] != 'no percipitation'){
+        showOnScreen.push('cloudy')
+    }
+    console.log('sky working')
+}
+
+//this calls the array
+springStateOfSky()
+
+let springStateOfWind = () => {
+    let windRange = Math.random();
+    if (windRange <= .5){
+        showOnScreen.push(0)
+    } else if (windRange > .5 && windRange <.7){
+        let range = windArray['windRangeB'][Math.floor(Math.random()*windArray['windRangeB'].length)]
+        showOnScreen.push(range)
+    } else if (windRange > .7 && windRange <.9){
+        let range = windArray['windRangeC'][Math.floor(Math.random()*windArray['windRangeC'].length)]
+        showOnScreen.push(range)
+    } else if (windRange > .9 && windRange < 1){
+        let range = windArray['windRangeD'][Math.floor(Math.random()*windArray['windRangeD'].length)]
+        showOnScreen.push(range)
+    }
+    }
+
+    //this calls the function
+    springStateOfWind()
+
+    document.getElementById("forecast").innerHTML = `Temp is ${showOnScreen[1]}. Humidity is ${showOnScreen[2]}. Percipitation is ${showOnScreen[3]}. The sky looks ${showOnScreen[4]}. The wind is ${showOnScreen[5]} miles per hour`;
+
+}
+
+    </script>
+
+
+</body>
+</html>

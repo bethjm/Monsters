@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>Add your monster</title>
+</head>
+<body>
+
+
+    <h1>Add Player</h1>
+
+
+    <form action="/Player" method="POST">
+        <input type="submit" value="Submit Player"><br>
+
+        Name: <input type="text" name="name" ><br>
+        Class: <input type="text" name="basicInfo.class" ><br>
+        Level: <input type="text" name="basicInfo.level"><br>
+        
+        Stats: <br>
+       AC: <input type="text" name="stats.AC"><br>
+       HP: <input type="text" name="stats.HP"><br>
+        DEX: <input type="text" name="stats.DEX"><br>
+
+        Skills: <br>
+       Acrobatics: <input type="text" name="skills.acrobatics"><br>
+       Arcana: <input type="text" name="skills.arcana"><br>
+        Nature: <input type="text" name="skills.nature"><br>
+
+
+    </form>
+</body>
+</html>
