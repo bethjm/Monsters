@@ -34,13 +34,17 @@
         </div>
     </div>
     
-
-    <h1>What season is it?</h1>
-    <button class="weatherbutton" onclick="summer()" id="summer">Summer</button>
-    <button class="weatherbutton" onclick="fall()" id="fall">Fall</button>
-    <button class="weatherbutton" onclick="winter()" id="winter">Winter</button>
-    <button class="weatherbutton" onclick="spring()" id="spring">Spring</button>
-
+    <div class="grid-container">
+    <div class="prediction">
+        <h1>The weather is....</h1>
+        <p id="forecast"></p>
+    </div>
+    <div class="title"><h3>What season is it?</h3></div>
+    <button class="weatherbutton" onclick="summer()" id="summer"><a class="seasons">Summer</a></button>
+    <button class="weatherbutton" onclick="fall()" id="fall"><a class="seasons">Fall</a></button>
+    <button class="weatherbutton" onclick="winter()" id="winter"><a class="seasons">Winter</a></button>
+    <button class="weatherbutton" onclick="spring()" id="spring"><a class="seasons">Spring</a></button>
+    </div>
     <p id="forecast"></p>
 
     </div>
@@ -618,7 +622,7 @@ let winterStateOfWind = () => {
     //this calls the function
     winterStateOfWind()
 
-    document.getElementById("forecast").innerHTML = `Temp is ${showOnScreen[1]}. Humidity is ${showOnScreen[2]}. Percipitation is ${showOnScreen[3]}. The sky looks ${showOnScreen[4]}. The wind is ${showOnScreen[5]} miles per hour`;
+    document.getElementById("forecast").innerHTML = `Temp is ${showOnScreen[1]}. The air is ${showOnScreen[2]}. Percipitation is ${showOnScreen[3]}. The sky looks ${showOnScreen[4]}. The wind is ${showOnScreen[5]} miles per hour`;
 
 }
 

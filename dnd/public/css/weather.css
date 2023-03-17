@@ -1,8 +1,75 @@
 body {
-    background-color: #589A8D;
+    background-color: #5952A3;
+    font-family: 'TeXGyreBonum', sans-serif;
+
 }
 
 .weatherbutton {
-    width:50%;
-    padding-left: 20%;
+padding: 0;
+border: none;
+background: none;
+font-family: 'TeXGyreBonum', sans-serif;
+font-size: 3em;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
+    padding: 10px;
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+  
+  .prediction {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+  
+  .title {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+  
+  #spring {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 100;
+    background-image: url("spring.jpeg")
+  }
+  
+  #summer{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 100;
+    background-image: url("summer.jpeg")
+  }
+  
+  #fall{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 100;
+    background-image: url("fall.jpeg")
+  }
+  
+  #winter{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 100;
+    background-image: url("winter.webp")
+  }
+
+  .seasons {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 30vw;
+    height: 20vh
+  }
