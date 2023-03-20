@@ -11,7 +11,7 @@
 <link href="https://fonts.cdnfonts.com/css/tex-gyre-bonum" rel="stylesheet">
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <div class="header">
-  <title>Your Monster</title>
+  <title>Edit <%=Player.name%></title>
 </head>
 <body>
   <%- include ('./partials/header.ejs') %>
@@ -27,7 +27,6 @@
 
   <div class="player-top-row">
   <div class="name">
-    <h3>DUNGEONS AND DRAGONS</h3>
     <input type="text" name="name" value="<%=Player.name%>">
     <p>CHARACTER NAME</p>
 </div>

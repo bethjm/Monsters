@@ -27,218 +27,193 @@
 
 
     <form action="/Player" method="POST">
-        <input type="submit" value="Submit Player"><br>
-
-        <!DOCTYPE html>
-
-        <html>
-        <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="/css/style.css">
-        <link href="https://fonts.cdnfonts.com/css/dragon-hunter" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.cdnfonts.com/css/tex-gyre-bonum" rel="stylesheet">
-                        
-        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-        <div class="header">
-          <title>Player</title>
-        </head>
-        <body>
-          <form action="/Player" method="POST">
          <div class="playersheet">
         
           <div class="player-top-row">
-          <div class="name">
-            <h3>DUNGEONS AND DRAGONS</h3>
+          <div class="add-name">
             <input type="text" name="name">
-            CHARACTER NAME
-        </div>
+            CHARACTER NAME</div>
 
-        <div class="player-basic-info">
-          <div class="player-sheet-row">
-            <input type="text" name="basicInfo.class" size="5">
-          <p>CLASS</p>
-        </div>
-        <div class="player-sheet-row">
-          <input type="text" name="basicInfo.level" size="5">
-        <p>LEVEL</p>
-      </div>
-      <div class="player-sheet-row">
-        <input type="text" name="basicInfo.race" size="5">
-      <p>RACE</p>
-    </div>
-    <div class="player-sheet-row">
-      <input type="text" name="basicInfo.alignment" size="5">
-    <p>ALIGNMENT</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="basicInfo.experiencePoints" size="5">
-  <p>EXPERIENCE POINTS</p>
-</div>      
-</div>
-</div>
+        <table class="player-basic-info">
+          <tr>
+          <th class="basic-info-table">CLASS</th>
+        <th class="basic-info-table">LEVEL</th>
+      <th class="basic-info-table">RACE</th>
+    <th class="basic-info-table">ALIGNMENT</th>
+  <th class="basic-info-table">EXPERIENCE POINTS</th>
+  </tr>  
+  <tr>
+    <td class="basic-info-table"><input type="text" name="basicInfo.class" size="5"></td>
+    <td class="basic-info-table"><input type="text" name="basicInfo.level" size="5"></td>
+    <td class="basic-info-table"><input type="text" name="basicInfo.race" size="5"></td>
+    <td class="basic-info-table"><input type="text" name="basicInfo.alignment" size="5"></td>
+    <td class="basic-info-table"><input type="text" name="basicInfo.experiencePoints" size="5"></td>
+  </tr>  
+</table>
+
 
 <div class="player-info">
-  <div class="player-main-stats" >
-    <h4>MAIN STATS</h4>
-  <div >
-    <input type="text" name="stats.STR" size="5">
-  <p>STR</p>
-  </div>
-  <div >
-    <input type="text" name="stats.DEX" size="5"> 
-  <p>DEX</p>
-  </div>
-  <div >
-    <input type="text" name="stats.CON" size="5">
-  <p>CON</p>
-  </div>
-  <div >
-    <input type="text" name="stats.INT" size="5">
-  <p>INT</p>
-  </div>
-  <div >
-    <input type="text" name="stats.WIS" size="5">
-  <p>WIS</p>
-  </div>
-  <div >
-    <input type="text" name="stats.CHA" size="5">
-  <p>CHA</p>
-  </div>
+  <table class="player-main-stats" >
+<tr>
+   <th class="basic-info-table">STR</th>
+   <th class="basic-info-table">DEX</th>
+   <th class="basic-info-table">CON</th>
+   <th class="basic-info-table">INT</th>
+   <th class="basic-info-table">WIS</th>
+   <th class="basic-info-table">CHA</th>
+  </tr>
+
+  <tr>
+  <td><input type="text" name="stats.STR" size="5"></td>
+  <td><input type="text" name="stats.DEX" size="5"></td>
+  <td><input type="text" name="stats.CON" size="5"></td>
+  <td><input type="text" name="stats.INT" size="5"></td>
+  <td><input type="text" name="stats.WIS" size="5"></td>
+  <td><input type="text" name="stats.CHA" size="5"></td>
+</tr>
+  </table>
+</div>
+  
+  <div class="player-skills-and-saving-throws">
+  <table class="saving-throws">
+    <tr>
+      <th id="saving-throws-header">SAVING THROWS</th>
+      <th id="saving-throws-header"> </th>
+    </tr>
+  <tr>
+    <th>STR</th>
+    <td><input type="text" name="savingThrows.strength" size=></td>
+  </tr>
+  <tr>
+    <th>DEX</th>
+    <td><input type="text" name="savingThrows.dexterity" size=></td>
+  </tr>
+  <tr>
+    <th>CON</th>
+    <td><input type="text" name="savingThrows.constitution" size=></td>
+  </tr>
+  <tr>
+    <th>INT</th>
+    <td><input type="text" name="savingThrows.intelligence" size=></td>
+  </tr>
+  <tr>
+    <th>WIS</th>
+    <td><input type="text" name="savingThrows.wisdom" size=></td>
+ 
+  </tr>
+  <tr>
+    <th>CHA</th>
+    <td><input type="text" name="savingThrows.charisma" size=></td>
+  </tr>
+</table>
+<br>
+<br>
+<br>
+  
+  <table class="skills">
+    <tr>
+      <th id="skills-header">SKILLS</th>
+      <th id="skills-header"> </th>
+    </tr>
+  <tr>
+  <tr>
+    <th>ACROBATICS</th>
+    <td><input type="text" name="skills.acrobatics" size=></td>
+  </tr>
+  <tr>
+    <th>ANIMAL HANDLING</th>
+    <td><input type="text" name="skills.animalHandling" size=></td>
+  </tr>
+  <tr>
+    <th>ARCANA</th>
+    <td><input type="text" name="skills.arcana" size=></td>
+  </tr>
+  <tr>
+    <th>ATHLETICS</th>
+    <td><input type="text" name="skills.athletics" size=></td>
+  </tr>
+  <tr>
+    <th>DECEPTION</th>
+    <td><input type="text" name="skills.deception" size=></td>
+  </tr>
+  <tr>
+    <th>HISTORY</th>
+    <td><input type="text" name="basicInfo.history" size=></td>
+  </tr>
+  <tr>
+    <th>INSIGHT</th>
+    <td><input type="text" name="basicInfo.insight" size=></td>
+  </tr>
+  <tr>
+    <th>INTIMIDATION</th>
+    <td><input type="text" name="skills.intimidation" size=></td>
+  </tr>
+  <tr>
+    <th>INVESTIGATION</th>
+    <td><input type="text" name="skills.investigation" size=></td>
+  </tr>
+  <tr>
+    <th>MEDICINE</th>
+    <td><input type="text" name="skills.medicine" size=></td>
+  </tr>
+  <tr>
+    <th>NATURE</th>
+    <td><input type="text" name="skills.nature" size=></td>
+  </tr>
+  <tr>
+    <th>PERCEPTION</th>
+    <td><input type="text" name="skills.perception" size=></td>
+  </tr>
+  <tr>
+    <th>PERFORMANCE</th>
+    <td><input type="text" name="skills.performance" size=></td>
+  </tr>
+  <tr>
+    <th>PERSUASION</th>
+    <td><input type="text" name="skills.persuasion" size=></td>
+  </tr>
+  <tr>
+    <th>RELIGION</th>
+    <td><input type="text" name="skills.religion" size=></td>
+  </tr>
+  <tr>
+    <th>SLEIGHT OF HAND</th>
+    <td><input type="text" name="skills.sleightOfHand" size=></td>
+  </tr>
+  <tr>
+    <th>STEALTH</th>
+    <td><input type="text" name="skills.stealth" size=></td>
+  </tr>
+  <tr>
+    <th>SURVIVAL</th>
+    <td><input type="text" name="skills.survival" size=></td>
+  </tr>
+  <tr>
+    <th>PASSIVE WISDOM/PERCEPTION </th>
+    <td><input type="text" name="skills.passive" size=></td>
+  </tr>
+</table>
   </div>
   
-  <div class="player-skills-and-savingthrows">
-  <div class="player-saving-throws">
-    <h4 id="savingthrow">SAVING THROW</h4>
-  <div class="player-sheet-row">
-    <input type="text" name="savingThrows.strength" size="5">
-  <p>STR</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="savingThrows.dexterity" size="5">
-  <p>DEX</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="savingThrows.constitution" size="5">
-  <p>CON</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="savingThrows.intelligence" size="5">
-  <p>INT</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="savingThrows.wisdom" size="5">
-  <p>WIS</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="savingThrows.charisma" size="5">
-  <p>CHA</p>
-  </div>
-  </div>
-  
-  <div class="player-skills">
-  <h4>SKILLS</h4>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.acrobatics" size="5">
-  <p>ACROBATICS</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.animalHandling" size="5">
-  <p>ANIMAL HANDLING</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.arcana" size="5">
-  <p>ARCANA</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.athletics" size="5">
-  <p>ATHLETICS</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.deception" size="5">
-  <p>DECEPTION</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="basicInfo.history" size="5">
-  <p>HISTORY</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="basicInfo.insight" size="5">
-  <p>INSIGHT</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.intimidation" size="5">
-  <p>INTIMIDATION</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.investigation" size="5">
-  <p>INVESTIGATION</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.medicine" size="5">
-  <p>MEDICINE</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.nature" size="5">
-  <p>NATURE</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.perception" size="5">
-  <p>PERCEPTION</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.performance" size="5">
-  <p>PERFORMANCE</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.persuasion" size="5">
-  <p>PERSUASION</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.religion" size="5">
-  <p>RELIGION</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.sleightOfHand" size="5">
-  <p>SLEIGHT OF HAND</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.stealth" size="5">
-  <p>STEALTH</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.survival" size="5">
-  <p>SURVIVAL</p>
-  </div>
-  <div class="player-sheet-row">
-    <input type="text" name="skills.passive" size="5">
-  <p>PASSIVE WISDOM/PERCEPTION </p>
-  </div>
-  </div>
-  </div>
-  
-  
+  <div class="notes">
   <div class="personality">
   <h4>PERSONALITY TRAITS</h4>
   <p>TRAITS</p>
-    <textarea class="player" type="text" name="personality.traits" rows="4" cols="30"></textarea>
+    <textarea class="player" type="text" name="personality.traits" rows="4" cols="50"></textarea>
   <p>IDEALS</p><br>
-    <textarea class="player" type="text" name="personality.ideals" rows="4" cols="30"></textarea>
+    <textarea class="player" type="text" name="personality.ideals" rows="4" cols="50"></textarea>
   <p>BONDS</p><br>
-    <textarea class="player" type="text" name="personality.bonds" rows="4" cols="30"></textarea>
+    <textarea class="player" type="text" name="personality.bonds" rows="4" cols="50"></textarea>
   <p>FLAWS</p><br>
-    <textarea class="player" type="text" name="personality.flaws" rows="4" cols="30"></textarea>
+    <textarea class="player" type="text" name="personality.flaws" rows="4" cols="50"></textarea>
     <p>NOTES</p><br>
-    <textarea class="player" type="text" name="notes" rows="4" cols="30"></textarea>
+    <textarea class="player" type="text" name="notes" rows="4" cols="50"></textarea>
   
   </div>
-  
-  
-  
+</div>
         </div>
-        </div>
+        <input type="submit" value="Submit Player"><br>
+
         </form>
         </body>
         </html>

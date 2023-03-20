@@ -118,10 +118,11 @@ font-family: 'TeXGyreBonum', sans-serif;
     flex-direction: column;
     margin: 0;
     z-index: 0;
-    box-shadow: 0 0 60px #dab171 inset;
+    box-shadow: 0 0 100px #dab171 inset;
     background: rgba(188, 152, 99, .4);
-    height: 100%;
+    height: 200%;
     font-family: 'TeXGyreBonum', sans-serif;
+    
                                                 
   }
 
@@ -130,6 +131,7 @@ font-family: 'TeXGyreBonum', sans-serif;
     flex-direction: row;
     margin-top: 0;
     flex-wrap: wrap;
+    overflow: none;
 }
 
 .profile {
@@ -172,9 +174,9 @@ font-family: 'TeXGyreBonum', sans-serif;
 }
 
 .charstats {
-    flex-direction: row;
+    /* flex-direction: column; */
     text-decoration:none;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 
 }
 
@@ -325,57 +327,102 @@ padding-left: 5%;
 /* //////////////////////////// */
 
 .playersheet{
-  /* the whole player sheet */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap; 
-  padding-left: 10%;
-  padding-top: 3%;
+  margin: 0;
+  z-index: 0;
+  box-shadow: 0 0 60px #dab171 inset;
+  background: rgba(188, 152, 99, .4);
+  height: 100%;
+  font-family: 'TeXGyreBonum', sans-serif;    
+
 }
 
 .player-top-row{
-  /* the top row with name and basic stats */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap; 
+  padding-left: 20%;
+  padding-top: 3%;
 }
     .name{
       display: flex;
       flex-direction: column;
-      padding-right: 10%;
-      /* name and dnd title */
-      /* child of top row */
+      /* padding-left: 20%; */
+      font-family: 'DRAGON HUNTER', sans-serif;
+      font-size: 100px;
+      text-decoration: underline;
+      line-height: 105px;
     }
 
     .player-basic-info{
       flex-direction: row;
       flex-wrap: wrap; 
       display: flex;
-      padding-left: 5%;
-      /* basic info */
-      /* child of top row */
+      padding-left: 17%;
+      font-family: 'TeXGyreBonum', sans-serif;    
+      border-collapse: separate;
+  border-spacing: 5 15px;
+                          
+
+    }
+
+    .basic-info-table{
+      padding: 8px;
     }
 
 
-.player-info{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; 
-  /* holds main stats, player skills and savingthrows */
-}
   .player-main-stats{
   display: flex;
-  flex-direction: column;
-  /* width: 10%; */
   text-align: center;
   flex-wrap: wrap; 
+  border-collapse: collapse;
   }
 
-  .player-skills-and-savingthrows{
+  .skills-and-saving-throws{
     display: flex;
     flex-direction: row;
+    padding-top: 5%;
+  }
+
+  .saving-throws, .skills {
+    font-family: 'TeXGyreBonum', sans-serif;    
+    border-collapse: collapse;
+    margin-left: 20%;
+    text-align: center;
+display: flex;
+  }
+  
+  .saving-throws td, .saving-throws th, .skills td, .skills th {
+    border: 1px ;
+    padding: 8px;
+  }
+  
+  .saving-throws tr:nth-child(even){background-color: rgba(206, 24, 35, .3);}
+  .skills tr:nth-child(even){background-color: rgba(40, 0, 44, .3);}
+
+  .saving-throws tr:nth-child(odd){background-color:rgba(254, 254, 254, .8);}
+  .skills tr:nth-child(odd){background-color:rgba(254, 254, 254, .8);}
+
+  #saving-throws-header{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#CE1823;
+    color: white;
     width: 30%;
-/* parent of saving thows and skills */
+    text-align: center;
+  }
+
+  #skills-header{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:rgba(40, 0, 44, 1);
+    color: white;
+    width: 30%;
+    text-align: center;
   }
 
   .player-saving-throws{
@@ -383,6 +430,7 @@ padding-left: 5%;
     flex-direction: column;
     text-align: center;
     flex-wrap: wrap; 
+    
   }
 
   .player-skills{
@@ -394,9 +442,6 @@ padding-left: 5%;
 
   }
 
-  #savingthrow {
-
-  }
 
 
   .personality{
@@ -482,6 +527,25 @@ padding-left: 5%;
     .showtable{
       font-size: 12px;
     }
+
+    .name {
+      padding-left: 0%;
+    }
+
+    .basic-info-table{
+      display: flex;
+    }
   
+
+    .skills-and-saving-throws{
+      flex-direction: column;
+    }
+
+   .saving-throws{
+    width: 40%;
+   }
+    .skills{
+      width: 20%;
+    }
 
   }
